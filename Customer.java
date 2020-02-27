@@ -8,28 +8,32 @@ public class Customer{
    private String joinDate; 
    
    //inisialisasi konstruktor
-   public void Customer(){
-    
+   public Customer(int id, String name, String email, String password, String joinDate){
+       this.id=id; 
+       this.name=name; 
+       this.email=email; 
+       this.password=password; 
+       this.joinDate=joinDate; 
     }
     
    public int getId(){
-    return 0;    
+       return id;    
    }
    
    public String getName(){
-       return "oke"; 
+       return name; 
     }
     
    public String getEmail(){
-    return "oke"; 
+       return email; 
     }
    
     public String getPassword(){
-        return "oke"; 
+        return password; 
     }
     
     public String getJoinDate(){
-        return "oke"; 
+        return joinDate; 
     }
     
     public void setId (int id){
@@ -51,6 +55,11 @@ public class Customer{
     public void serJoinDate (String joinDate){
     
     }
+    
+    public void printData(){
+           System.out.println(name);
+    }
+    
     
     
    

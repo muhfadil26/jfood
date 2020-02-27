@@ -5,42 +5,61 @@ public class Seller
     private String name; 
     private String email; 
     private String phoneNumber; 
+    private Location location; 
     
-    public void seller(){
-    
+    public Seller(int id, String name, String email, String phoneNumber, Location location){
+        this.id=id;
+        this.name=name; 
+        this.email=email; 
+        this.phoneNumber=phoneNumber; 
+        this.location=location; 
     }
     
     public int getId(){
-        return 0; 
+        return id; 
     }
     
     public String getName(){
-        return "oke"; 
+        return name; 
     }
     
-    public int getPrice(){
-        return 0; 
+    public String getEmail(){
+        return email; 
     }
     
-    public String getCategory (){
-        return "oke"; 
+    public String getphoneNumber(){
+        return phoneNumber; 
+    }
+    
+    public Location getlocation(){
+        return location; 
     }
     
     public void setId(int id){
-    
+        this.id=id; 
     }
     
     public void setName(String name){
-    
+        this.name=name; 
     }
     
-    public void setPrice(int price){
-    
+    public void setEmail(String email){
+        this.email=email; 
     }
     
-    public void setCategory(String category){
-        
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber; 
     }
+    
+    public void setLocation(Location location){
+        this.location=location; 
+    }
+    
+    public void printData(){
+        System.out.println(name);
+    }
+    
+    
     
     
     
