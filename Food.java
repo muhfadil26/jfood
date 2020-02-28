@@ -86,7 +86,7 @@ public class Food{
     }
     
     public void printData(){
-    
+        System.out.println(name); // print name customer
     }
     
     

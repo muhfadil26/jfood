@@ -78,8 +78,8 @@ public class Invoice{
     
     }
     
-     public void printData(){
-    
+    public void printData(){
+            System.out.println(totalPrice); // print name customer
     }
     
 }

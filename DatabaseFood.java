@@ -6,7 +6,12 @@
 */
 
 public class DatabaseFood {
+   
    private String[] listFood; 
+   
+   //tambahan untuk bonus
+   private Food food; 
+
     /**
     * This method is used to check databasefood
     * contain array listFood and boolean default
@@ -36,5 +41,14 @@ public class DatabaseFood {
         * @return listFood, this accesor is used for exit method
         */
         return listFood; 
+    }
+    
+   //tambahan untuk bonus
+   public Food setFood(){
+            return food; 
+    }
+   //tambahan untuk bonus
+   public Food getFood(){
+            return food; 
     }
 }
