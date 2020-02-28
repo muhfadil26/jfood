@@ -3,6 +3,7 @@ comment0.target=Invoice
 comment0.text=\r\n\ This\ class\ is\ Invoice\r\n\r\n\ @author\ \ Muhamad\ Fadil\r\n\ @version\ \ \ 2020-02-27\ \r\n
 comment1.params=id\ idFood\ date\ customer\ totalPrice
 comment1.target=Invoice(int,\ int,\ java.lang.String,\ Customer,\ int)
+comment1.text=\r\n\ this\ method\ class\ invoice\ is\ used\ for\ getting\ information\ about\ food\ \ \r\n\ \r\n\ @param\ id,\ this\ variable\ is\ used\ for\ id\ invoice\r\n\ @param\ idFodd,\ this\ variable\ is\ used\ for\ id\ Food\r\n\ @param\ date,\ this\ variable\ is\ used\ for\ date\ invoice\r\n\ @param\ totalPrice,\ this\ variable\ is\ used\ for\ total\ price\r\n
 comment10.params=totalPrice
 comment10.target=void\ setTotalPrice(int)
 comment11.params=customer

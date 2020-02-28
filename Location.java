@@ -6,16 +6,17 @@
 */
 
 public class Location{
-    /**
-    * this method is used for location
-    * 
-    * @param province
-    * @param city
-    * @param description
-    */
     private String province; 
     private String description; 
     private String city; 
+    
+    /**
+    * this method is used for location
+    * 
+    * @param province, this variable is used for name province
+    * @param city, this is used for name city
+    * @param description, this is used for decription city
+    */
     
     public Location (String city, String province, String description){
         this.city=city; 
@@ -60,6 +61,6 @@ public class Location{
     }
     
     public void printData(){
-        System.out.println(province);
+        System.out.println(province); //print province
     }
 }

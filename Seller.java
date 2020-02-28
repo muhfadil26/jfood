@@ -4,21 +4,22 @@
 * @author  Muhamad Fadil
 * @version   2020-02-27 
 */
+
 public class Seller{
-    /**
-    * this method is used to check Seller
-    * 
-    * @param id
-    * @param name
-    * @param email
-    * @param phoneNumber   
-    * @param location
-    */
     private int id; 
     private String name; 
     private String email; 
     private String phoneNumber; 
-    private Location location; 
+    private Location location; //make variable location to connect Location class
+    
+     /**
+    * this method is used for getting Seller information
+    * @param id, this variable is used for id seller
+    * @param name, this variable is used for seller's name
+    * @param email, this variable is used for seller's email
+    * @param phoneNumber, this variable is used for phoneNumber seller   
+    * @param location, this variable is used for location seller
+    */
     
     public Seller(int id, String name, String email, String phoneNumber, Location location){
         this.id=id;
@@ -84,7 +85,7 @@ public class Seller{
     }
     
     public void printData(){
-        System.out.println(name);
+        System.out.println(name); //print name seller
     }
     
     

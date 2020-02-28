@@ -6,27 +6,35 @@
 */
 
 public class DatabaseFood {
-   /**
-    * this method is used to check databasefood
-    * contain array listFood
-    * @param false, this is a condition for adding food
+   private String[] listFood; 
+    /**
+    * This method is used to check databasefood
+    * contain array listFood and boolean default
     * @param listFood, this param is used for listFood
     */
-   private String[] listFood; 
    
    public DatabaseFood(){
     
     }
    
    public boolean addFood(Food food){
+       /*
+        * @return false, this accesor is used for exit method
+        */
           return false; 
     }
     
    public boolean removeFood(Food food){
+       /*
+        * @return false, this accesor is used for exit method
+        */
           return false; 
     }
     
    public String[] getListFood(){
+       /*
+        * @return listFood, this accesor is used for exit method
+        */
         return listFood; 
     }
 }

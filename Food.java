@@ -5,22 +5,23 @@
 * @version   2020-02-27 
 */
 
-public class Food{//this class is use for Food
-    /**
-    * this method is used to check food
-    * contains private variable
-    * @param id, this is a variable 
-    * @param name, this is a variable  
-    * @param seller, this is a variable 
-    * @param category, this is a variable 
-    * @param seller, this is a variable 
-    */
+public class Food{
     private int id; 
     private String name; 
     private int price; 
     private String category;
-    private Seller seller;  
+    private Seller seller; //connecting to Seller class
     
+    /**
+    * this method is used to check food
+    * contains private variable
+    * @param id, this variable is used for id Food  
+    * @param name, this variable is used for name Food
+    * @param seller, this variable is used for seller
+    * @param category, this variable is used for category food
+    * @param price, this variable is used for price value
+    */
+   
     public Food(int id, String name, Seller seller, int price, String category){
         this.id=id; 
         this.name=name; 
@@ -31,35 +32,35 @@ public class Food{//this class is use for Food
     
     public int getId(){
         /*
-         * @return id
+         * @return id, this is used for returning id 
          */
         return id; 
     }
     
     public String getName(){
          /*
-         * @return name
+         * @return name, this is used for returning name
          */
         return name; 
     }
     
     public Seller getSeller(){
          /*
-         * @return seller
+         * @return seller, this is used for returning seller
          */
         return seller; 
     }
     
     public int getPrice(){
          /*
-         * @return price
+         * @return price, this is used for returning price
          */
         return price; 
     }
     
     public String getCategory(){
          /*
-         * @return category
+         * @return category, this is used for returning category
          */
         return category; 
     }

@@ -7,20 +7,21 @@
 
 public class Customer{
     //inisialisasi atribut
-     /**
-    * this method is used for add customer
-    * contains private variable
-    * @param id, this is a variable 
-    * @param name, this is a variable  
-    * @param email, this is a variable 
-    * @param password, this is a variable 
-    * @param joinDate, this is a variable 
-    */
    private int id; 
    private String name; 
    private String email; 
    private String password; 
    private String joinDate; 
+   
+    /**
+    * this method is used for add customer
+    * contains private variable
+    * @param id, this is a variable for id customer
+    * @param name, this is a variable for name customer
+    * @param email, this is a variable for email customer
+    * @param password, this is a variable for customer's password
+    * @param joinDate, this is a variable for joinDate customer
+    */
    
    //inisialisasi konstruktor
    public Customer(int id, String name, String email, String password, String joinDate){
@@ -78,7 +79,7 @@ public class Customer{
     }
     
     public void printData(){
-           System.out.println(name);
+           System.out.println(name); // print name customer
     }
     
     

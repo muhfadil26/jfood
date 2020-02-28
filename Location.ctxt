@@ -3,6 +3,7 @@ comment0.target=Location
 comment0.text=\r\n\ This\ class\ is\ Location\r\n\r\n\ @author\ \ Muhamad\ Fadil\r\n\ @version\ \ \ 2020-02-27\ \r\n
 comment1.params=city\ province\ description
 comment1.target=Location(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ this\ method\ is\ used\ for\ location\r\n\ \r\n\ @param\ province,\ this\ variable\ is\ used\ for\ name\ province\r\n\ @param\ city,\ this\ is\ used\ for\ name\ city\r\n\ @param\ description,\ this\ is\ used\ for\ decription\ city\r\n
 comment2.params=
 comment2.target=java.lang.String\ getProvince()
 comment3.params=

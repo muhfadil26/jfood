@@ -3,6 +3,7 @@ comment0.target=DatabaseFood
 comment0.text=\r\n\ This\ class\ is\ DatabaseFood\r\n\r\n\ @author\ \ Muhamad\ Fadil\r\n\ @version\ \ \ 2020-02-27\ \r\n
 comment1.params=
 comment1.target=DatabaseFood()
+comment1.text=\r\n\ This\ method\ is\ used\ to\ check\ databasefood\r\n\ contain\ array\ listFood\ and\ boolean\ default\r\n\ @param\ listFood,\ this\ param\ is\ used\ for\ listFood\r\n
 comment2.params=food
 comment2.target=boolean\ addFood(Food)
 comment3.params=food
