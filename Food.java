@@ -1,12 +1,25 @@
+/**
+* This class is Food
+*
+* @author  Muhamad Fadil
+* @version   2020-02-27 
+*/
 
-public class Food
-{
+public class Food{//this class is use for Food
+    /**
+    * this method is used to check food
+    * contains private variable
+    * @param id, this is a variable 
+    * @param name, this is a variable  
+    * @param seller, this is a variable 
+    * @param category, this is a variable 
+    * @param seller, this is a variable 
+    */
     private int id; 
     private String name; 
     private int price; 
     private String category;
-    private Seller seller; 
-    private Customer customer; 
+    private Seller seller;  
     
     public Food(int id, String name, Seller seller, int price, String category){
         this.id=id; 
@@ -17,22 +30,37 @@ public class Food
     }
     
     public int getId(){
+        /*
+         * @return id
+         */
         return id; 
     }
     
     public String getName(){
+         /*
+         * @return name
+         */
         return name; 
     }
     
     public Seller getSeller(){
+         /*
+         * @return seller
+         */
         return seller; 
     }
     
     public int getPrice(){
+         /*
+         * @return price
+         */
         return price; 
     }
     
     public String getCategory(){
+         /*
+         * @return category
+         */
         return category; 
     }
     

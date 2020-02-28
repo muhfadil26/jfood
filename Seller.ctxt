@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Seller
+comment0.text=\r\n\ This\ class\ is\ Seller\r\n\r\n\ @author\ \ Muhamad\ Fadil\r\n\ @version\ \ \ 2020-02-27\ \r\n
 comment1.params=id\ name\ email\ phoneNumber\ location
 comment1.target=Seller(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ Location)
 comment10.params=phoneNumber

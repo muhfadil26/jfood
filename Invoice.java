@@ -1,6 +1,18 @@
-
-public class Invoice
-{
+/**
+* This class is Invoice
+*
+* @author  Muhamad Fadil
+* @version   2020-02-27 
+*/
+public class Invoice{
+    /**
+    * this method is used for invoice
+    * 
+    * @param id
+    * @param idFodd
+    * @param date
+    * @param totalPrice
+    */
     private int id; 
     private int idFood; 
     private String date; 
@@ -16,14 +28,23 @@ public class Invoice
     }
     
     public int getId(){
+         /*
+         * @return id
+         */
         return id; 
     }
     
     public int getIdFood(){
+         /*
+         * @return idFood
+         */
         return idFood; 
     }
     
     public String getDate(){
+         /*
+         * @return date
+         */
         return date; 
     }
     

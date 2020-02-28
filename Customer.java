@@ -1,6 +1,21 @@
+/**
+* This class is Customer
+*
+* @author  Muhamad Fadil
+* @version   2020-02-27 
+*/
 
 public class Customer{
     //inisialisasi atribut
+     /**
+    * this method is used for add customer
+    * contains private variable
+    * @param id, this is a variable 
+    * @param name, this is a variable  
+    * @param email, this is a variable 
+    * @param password, this is a variable 
+    * @param joinDate, this is a variable 
+    */
    private int id; 
    private String name; 
    private String email; 
@@ -17,10 +32,16 @@ public class Customer{
     }
     
    public int getId(){
+         /*
+         * @return id
+         */
        return id;    
    }
    
    public String getName(){
+       /*
+        * @return name
+        */
        return name; 
     }
     
