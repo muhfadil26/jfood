@@ -57,7 +57,7 @@ public class Seller{
         return phoneNumber; 
     }
     
-    public Location getlocation(){
+    public Location getLocation(){
          /*
          * @return locatio
          */

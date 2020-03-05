@@ -7,48 +7,42 @@
 
 public class DatabaseFood {
    
-   private String[] listFood; 
+   private static String[] listFood; 
    
-   //tambahan untuk bonus
-   private Food food; 
-
     /**
     * This method is used to check databasefood
     * contain array listFood and boolean default
     * @param listFood, this param is used for listFood
     */
    
-   public DatabaseFood(){
+   /*public DatabaseFood(){
     
-    }
+    }*/
    
-   public boolean addFood(Food food){
+   public static boolean addFood(Food food){
        /*
         * @return false, this accesor is used for exit method
         */
           return false; 
     }
     
-   public boolean removeFood(Food food){
+   public static boolean removeFood(Food food){
        /*
         * @return false, this accesor is used for exit method
         */
           return false; 
     }
     
-   public String[] getListFood(){
+   public static String[] getListFood(){
        /*
         * @return listFood, this accesor is used for exit method
         */
         return listFood; 
     }
     
-   //tambahan untuk bonus
-   public Food setFood(){
-            return food; 
+  
+   public static Food getFood(){
+      return null; 
     }
-   //tambahan untuk bonus
-   public Food getFood(){
-            return food; 
-    }
+   
 }

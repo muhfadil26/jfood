@@ -2,6 +2,7 @@
 public class JFood{
     public static void main (String[] args)
     {
+        //FoodCategory foodcategory1 = new FoodCategory ("cstrgory"); 
         //n0.1
         Location location1 = new Location ("Tegal", "Jawa Tengah", "Kelahiranku"); 
         
@@ -9,7 +10,7 @@ public class JFood{
         Seller seller1 = new Seller (28022020, "Muhamad Fadil", "muhamad.fadil@ui.ac.id", "087881490385", location1); 
  
         //no.3
-        Food food1 = new Food (123, "Buah Naga", seller1,50000, "Buah-buahan"); 
+        Food food1 = new Food (123, "Buah Naga", seller1,50000, FoodCategory.Rice); 
         
         //no.4
         Customer customer1 = new Customer (12345,"Muhamad Fadhilah", "Muhamadfadhilah@gmail.com", "rahasiadong","28-02-2020"); 
@@ -31,8 +32,7 @@ public class JFood{
         
         
         //bonus
-        
-        
+        DatabaseFood.removeFood(food1); 
     }
 }
 

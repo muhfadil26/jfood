@@ -8,9 +8,10 @@
 public class Food{
     private int id; 
     private String name; 
-    private int price; 
-    private String category;
     private Seller seller; //connecting to Seller class
+    private int price; 
+    //private String category;
+    private FoodCategory category; 
     
     /**
     * this method is used to check food
@@ -22,7 +23,7 @@ public class Food{
     * @param price, this variable is used for price value
     */
    
-    public Food(int id, String name, Seller seller, int price, String category){
+    public Food (int id, String name, Seller seller, int price, FoodCategory category){
         this.id=id; 
         this.name=name; 
         this.seller=seller; 
@@ -58,7 +59,7 @@ public class Food{
         return price; 
     }
     
-    public String getCategory(){
+    public FoodCategory getCategory(){
          /*
          * @return category, this is used for returning category
          */
@@ -81,14 +82,19 @@ public class Food{
         this.price=price; 
     }
     
-    public void setCategory(String category){
+    public void setCategory(FoodCategory category){
         this.category=category; 
     }
     
     public void printData(){
-        System.out.println(name); // print name customer
+        System.out.println("======================FOOD=============="); 
+        System.out.println("ID: " +id); 
+        System.out.println("Name: " +name); 
+        System.out.println("Seller: " +seller.getName()); 
+        System.out.println("City: " +seller.getLocation().getCity()); 
+        System.out.println("Price: " +price); 
+        System.out.println("Category: " +category); 
+        
     }
-    
-    
     
 }

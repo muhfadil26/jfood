@@ -7,40 +7,26 @@
  */
 public class DatabaseSeller
 {
-    private String[] listSeller; 
-    
-    //tambahan untuk bonus
-    private Seller seller; 
-    
+    private static String[] listSeller; 
     
     /**
      * Constructor for objects of class DatabaseSeller
      */
-    public DatabaseSeller()
-    {
-        
-    }
  
-    public boolean addSeller (Seller seller){
+    public static boolean addSeller (Seller seller){
         return false; 
     }
     
-    public boolean removeSeller(Seller seller){
+    public static boolean removeSeller(Seller seller){
         return false; 
     }
     
-    public String[] getListSeller(){
+    public static Seller getSeller(){
+        return null; 
+    }
+    
+    public static String[] getListSeller(){
         return listSeller; 
-    }
-    
-    
-    //tambahan untuk bonus
-    public Seller setSeller(){
-        return seller; 
-    }
-    //tambahan untuk bonus
-    public Seller getSeller(){
-        return seller; 
     }
     
 }
