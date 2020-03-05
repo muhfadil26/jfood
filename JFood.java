@@ -30,7 +30,6 @@ public class JFood{
         //no.9
         food1.printData(); 
         
-        
         //bonus
         DatabaseFood.removeFood(food1); 
     }

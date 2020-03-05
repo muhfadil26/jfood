@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class DatabaseSeller here.
+ * this class is for DatabaseSeller
  *
  * @author Muhamad Fadil
  * @version 28 Februai 2020
