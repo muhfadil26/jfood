@@ -11,6 +11,8 @@ public class Invoice{
     private String date; 
     private int totalPrice; 
     private Customer customer; //connecting to Customer class
+    private PaymentType paymentType; 
+    private InvoiceStatus status; 
     
     /**
     * this method class invoice is used for getting information about food  
@@ -21,12 +23,13 @@ public class Invoice{
     * @param totalPrice, this variable is used for total price
     */
     
-    public Invoice (int id, int idFood, String date, Customer customer, int totalPrice){
+    public Invoice (int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status){
         this.id=id; 
         this.idFood=idFood; 
         this.date=date; 
         this.totalPrice=totalPrice; 
         this.customer=customer; 
+        this.status=status; 
     }
     
     public int getId(){
@@ -58,6 +61,14 @@ public class Invoice{
         return customer; 
     }
     
+    public PaymentType getPaymentType(){
+        return paymentType; 
+    }
+    
+    public InvoiceStatus getInvoiceStatus(){
+        return status; 
+    }
+    
     public void setId (int id){
     
     }
@@ -78,8 +89,24 @@ public class Invoice{
     
     }
     
+    public void setPaymentType (PaymentType paymentType){
+        
+    }
+    
+    public void setInvoiceStatus (InvoiceStatus status){
+        
+    }
+    
     public void printData(){
-            System.out.println(totalPrice); // print name customer
+        System.out.println("===============INVOICE=============="); 
+        System.out.println("ID: " +id); 
+        System.out.println("Food ID: " +idFood); 
+        System.out.println("Date: " +date); 
+        System.out.println("Customer: " +customer.getName()); 
+        System.out.println("Total Price: " +totalPrice); 
+        System.out.println("status: " +status); 
+        
+        //System.out.println(totalPrice); // print name customer
     }
     
 }
