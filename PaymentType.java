@@ -1,6 +1,6 @@
 
 /**
- * this class is enum .
+ * this class is enum PaymentType
  *
  * @author Muhamad Fadil
  * @version 5 Maret 2020

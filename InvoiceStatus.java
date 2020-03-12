@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class InvoiceStatus here.
+ * This class is used for enum Invoice method
  *
  * @author Muhamad fadil
  * @version 6 Maret 2018
