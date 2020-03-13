@@ -45,7 +45,7 @@ public abstract class Invoice{
          /*
          * @return idFood
          */
-        return null; 
+        return food; 
     }
     
     public String getDate(){

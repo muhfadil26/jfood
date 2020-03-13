@@ -9,8 +9,7 @@ public class Food{
     private int id; 
     private String name; 
     private Seller seller; //connecting to Seller class
-    private int price; 
-    //private String category;
+    private int price;    
     private FoodCategory category; 
     
     /**
