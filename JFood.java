@@ -1,57 +1,57 @@
+import java.util.Calendar; 
 import java.util.GregorianCalendar; 
 
 public class JFood{
     public static void main (String[] args)
     {
-        
-        
-        Location locationbaru = new Location ("Tegal", "Jawa Tengah", "Kelahiranku"); 
-        Seller sellerbaru = new Seller (28022020, "Muhamad Fadil", "muhamad.fadil@ui.ac.id", "087881490385", locationbaru); 
- 
-        //no.a
-        Food food1 = new Food (123, "Martabak", sellerbaru,50000, FoodCategory.Rice); 
-        Food food2 = new Food (13, "Gorengan", sellerbaru,60000, FoodCategory.Snacks); 
-        Food food3 = new Food (23, "Martabak", sellerbaru,59000, FoodCategory.Coffe); 
-        Food food4 = new Food (43, "Gado-gado", sellerbaru,90000, FoodCategory.Coffe);
-        Promo promo1 = new Promo (12, "hdsjdhj", 12000, 13000,true); 
-        Promo promo2 = new Promo (1243, "hd43jdhj", 10000, 50000,true);
-        
-        //no.a
-        Customer customer1 = new Customer (12345,"Jony Jony", "jony@gmail.com", "rahasia_Agka12"); 
-        Customer customer2 = new Customer (12345,"Muhamad Fadil", "Muhamadfadil@ui.ac.id", "rahasiadong", new GregorianCalendar(2019,03,14));
-        Customer customer3 = new Customer (12345,"Hanifer ah", "fadhilah@gmail.com", "rahasia", 2013, 03, 23);
-        //no.b
-        //no.b
-        //Invoice invoicebaru = new Invoice (2603,123,"28-02-2020", customer, 399000,InvoiceStatus); 
-        CashlessInvoice invoice1 = new CashlessInvoice (3, food1, "13-03-2020",customer1, InvoiceStatus.Ongoing); 
-        CashlessInvoice invoice2 = new CashlessInvoice (2, food2, "13-03-2020",customer2, InvoiceStatus.Finished,promo1); 
-        CashlessInvoice invoice3 = new CashlessInvoice (4, food3, "13-03-2020",customer3, InvoiceStatus.Ongoing); 
-        CashlessInvoice invoice4 = new CashlessInvoice (7, food4, "13-03-2020",customer3, InvoiceStatus.Ongoing, promo2);
-        
-        //PostTest
-        CashInvoice invoicebaru1 = new CashInvoice (4, food1, "3/3/2020",customer1, InvoiceStatus.Finished); 
-        CashInvoice invoicebaru2 = new CashInvoice (5, food2, "3/3/2020",customer2, InvoiceStatus.Finished, 13000); 
- 
-        //soal baru
-        invoicebaru1.setTotalPrice();
-        invoicebaru2.setTotalPrice();
-        
-        //CS*********************MOdul 4***
-        invoice1.setTotalPrice();
-        invoice2.setTotalPrice();
-        invoice3.setTotalPrice();
-        invoice4.setTotalPrice();
-        
-        invoice1.printData(); 
-        invoice2.printData(); 
-        invoice3.printData();
-        invoice4.printData();
-        
-        
-        //Modul post test********Modul 4***
-        invoicebaru1.printData(); 
-        invoicebaru2.printData();
-        
+       Location location1 = new Location("DKI Jakarta","Jakarta Selatan","Bagian Selatan");
+       Location location2 = new Location("Jawa Tengah", "Tegal", "Kota Bahari");
+       
+       Seller seller1 = new Seller(1,"Muhamad Fadil","fadil_fadil@ui.acid","087881409890",location1);
+       Seller seller2 = new Seller(2,"Fadil Muhamad","fadil.muh26@gmail.com","02134521010",location2);
+       
+       Food food1=new Food(1,"Roti Keju",seller1,20000,FoodCategory.Bakery);
+       Food food2=new Food(2,"Kopi Tubruk",seller2,35500,FoodCategory.Coffe);
+       Food food3=new Food(3,"Manisan",seller2,25000,FoodCategory.Snacks);
+       
+       Customer customer1=new Customer(111,"Fadil","fadoli@gmail.com","awekawek",2019,6,12);
+       Customer customer2=new Customer(112,"Weki","wekiwek@host-net.com","wekwekwek",new GregorianCalendar(2020,1,19));
+       Customer customer3=new Customer(113,"Jaki","jaki@joki.com","Santui+62");
+       
+       //promo
+       Promo promo1=new Promo(1,"lebaran",15050,25200,true);
+       //Discount discount1=new Discount (
+       
+       //print customer
+       customer1.toString();
+       customer2.toString();
+       customer3.toString();
+       
+       customer1.setEmail(",fadoli@gmail.com");
+       customer1.toString();
+       
+       customer1.setEmail("fadoli@-gmail.com");
+       customer1.toString();
+       
+       customer1.setEmail("fadoli@gmail_net.com");
+       customer1.toString();
+       
+       customer1.setEmail("fadoli.op@ui.ac.id");
+       customer1.toString();
+       
+       customer1.setPassword("23456");
+       customer1.toString();
+       
+       customer1.setEmail("fadil-lo@officenet.com"); 
+       customer1.setPassword("123-Aws@qw");
+       customer1.toString();
+       
+       customer1.setEmail("fadilo@host-new.ui.ac.id"); 
+       customer1.setPassword("103203aSW");
+       customer1.toString();
+       
+       //customer2.toString();
+         
     }
 }
 

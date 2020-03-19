@@ -7,6 +7,8 @@
 import java.util.*; 
 import java.util.Calendar; 
 import java.util.Date; 
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern; 
 
@@ -103,29 +105,28 @@ public class Customer{
                             "A-Z]{2,7}$"; 
         Pattern pat = Pattern.compile(emailRegex);
         Matcher m = pat.matcher(email); 
-        if (m.find()){
-            System.out.println("Email : " + m.group()); 
+        if (m.matches()){
+            //System.out.println("Email : " + m.group()); 
             this.email=email; 
         }
         else{
-            System.out.println("Email : NULL"); 
+            //System.out.println("Email : NULL"); 
             this.email="NULL"; 
         }
         
     }
     
     public void setPassword(String password){
-        String regex = "^(?=?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"; 
-        
-        Pattern pat = Pattern.compile(regex); 
+        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"; 
+        Pattern pat = Pattern.compile(passwordRegex); 
         Matcher m = pat.matcher(password); 
-        if (m.find()){
-            System.out.println("Password : " + m.group()); 
+        if (m.matches()){
+            //System.out.println("Password : " + m.group()); 
             this.password=password; 
         }
         else{
-            System.out.println("Password : NULL"); 
-            this.password="NULL"; 
+            //System.out.println("Password : NULL"); 
+            this.password=""; 
         }
     }
     
@@ -138,7 +139,7 @@ public class Customer{
     }
     
     public String toString(){
-        /*String string = ""; 
+        String string = ""; 
         if (joinDate!=null)
         {
             Date date = joinDate.getTime(); 
@@ -150,7 +151,7 @@ public class Customer{
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n"+
-                    "Join Date : "+ joinDate+ "\n"; 
+                    "Join Date : "+ date1+"\n"; 
                 }
          else{
              string =  
@@ -158,20 +159,20 @@ public class Customer{
                     "Id : "+ id+ "\n"+
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
-                    "Password : "+ password+ "\n"+
-                    "Join Date : "+ joinDate+ "\n"; 
+                    "Password : "+ password+ "\n";
+                    //"Join Date : "+ joinDate+ "\n"; 
             }
             
         System.out.println(string); 
-        return string; */
+        return string; 
         
-        return 
+        /*return 
         "===================Customer================"+"\n"+
                     "Id : "+ id+ "\n"+
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n"+
-                    "Join Date : "+ joinDate+ "\n";
+                    "Join Date : "+ joinDate+ "\n";*/
     }
     
     
