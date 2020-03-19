@@ -45,7 +45,7 @@ public class CashlessInvoice extends Invoice
      * metode yang digunakan untuk meng-eset total price dengan kodisi sebagai berikut 
      */
     public void setTotalPrice(){
-        if(promo != null && promo.getActive()==true && super.getFood().getPrice()>=promo.getMinPrice()
+        if((promo != null) && (promo.getActive()==true) && (super.getFood().getPrice()>=promo.getMinPrice())
         )
         {
             super.totalPrice= getFood().getPrice()-promo.getDiscount(); 
@@ -62,33 +62,27 @@ public class CashlessInvoice extends Invoice
      * metode untuk mengeprin data 
      */
     public void printData(){
-        if(promo == null || promo.getActive()==false || super.getFood().getPrice()<promo.getMinPrice()
+        if(promo == null || promo.getActive()==false || super.getTotalPrice()<promo.getMinPrice()
         )
+        
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
             System.out.println("Date: " + super.getFood().getName()); 
             System.out.println("Customer: " + super.getDate()); 
-            //System.out.println("Code Promo: " + super.promo.getCode()); 
-            System.out.println("Total Price: " + super.getTotalPrice()); 
+            System.out.println("Total Price: " + getTotalPrice()); 
             System.out.println("Status: " + super.getInvoiceStatus()); 
             System.out.println("Payment Type: " + PAYMENT_TYPE); 
             System.out.println("==============================="); 
-            
         }
-        
-    }
-    
-    public void printData1(){
-        if(promo == null || promo.getActive()==false || super.getFood().getPrice()<promo.getMinPrice()
-        )
+        else
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
             System.out.println("Date: " + super.getFood().getName()); 
             System.out.println("Customer: " + super.getDate()); 
-            System.out.println("Code Promo: " + promo.getCode()); 
-            System.out.println("Total Price: " + super.getTotalPrice()); 
+            System.out.println("Code Promo: " + promo.getCode());
+            System.out.println("Total Price: " + getTotalPrice()); 
             System.out.println("Status: " + super.getInvoiceStatus()); 
             System.out.println("Payment Type: " + PAYMENT_TYPE); 
             System.out.println("==============================="); 

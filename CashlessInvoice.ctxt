@@ -22,6 +22,4 @@ comment6.text=\r\n\ metode\ yang\ digunakan\ untuk\ meng-eset\ total\ price\ den
 comment7.params=
 comment7.target=void\ printData()
 comment7.text=\r\n\ metode\ untuk\ mengeprin\ data\ \r\n
-comment8.params=
-comment8.target=void\ printData1()
-numComments=9
+numComments=8
