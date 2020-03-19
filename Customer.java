@@ -1,9 +1,14 @@
 /**
-* This class is Customer
+* This class is used for Customer
 *
 * @author  Muhamad Fadil
 * @version   2020-02-27 
 */
+import java.util.*; 
+import java.util.Calendar; 
+import java.util.Date; 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern; 
 
 public class Customer{
     //inisialisasi atribut
@@ -11,7 +16,7 @@ public class Customer{
    private String name; 
    private String email; 
    private String password; 
-   private String joinDate; 
+   private Calendar joinDate; 
    
     /**
     * this method is used for add customer
@@ -24,13 +29,38 @@ public class Customer{
     */
    
    //inisialisasi konstruktor
-   public Customer(int id, String name, String email, String password, String joinDate){
+   public Customer(int id, String name, String email, String password, Calendar joinDate){
        this.id=id; 
        this.name=name; 
        this.email=email; 
        this.password=password; 
        this.joinDate=joinDate; 
+       setEmail(email); 
+       setPassword(password); 
     }
+    
+   public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth){
+       this.id=id; 
+       this.name=name; 
+       this.email=email; 
+       this.password=password; 
+       this.joinDate= new GregorianCalendar(year,month,dayOfMonth);
+       setEmail(email); 
+       setPassword(password);
+       //this.year=year; 
+       //this.month=month; 
+       //this.dayOfmounth=dayOfmounth; 
+    }
+    
+   public Customer(int id, String name, String email, String password){
+       this.id=id; 
+       this.name=name; 
+       this.email=email; 
+       this.password=password; 
+       setEmail(email); 
+       setPassword(password);
+    }
+     
     
    public int getId(){
          /*
@@ -54,32 +84,94 @@ public class Customer{
         return password; 
     }
     
-    public String getJoinDate(){
+    public Calendar getJoinDate(){
         return joinDate; 
     }
     
     public void setId (int id){
-    
+        this.id=id; 
     }
     
     public void setName (String name){
-    
+        this.name=name; 
     }
     
     public void setEmail(String email){
-    
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+        Pattern pat = Pattern.compile(emailRegex);
+        Matcher m = pat.matcher(email); 
+        if (m.find()){
+            System.out.println("Email : " + m.group()); 
+            this.email=email; 
+        }
+        else{
+            System.out.println("Email : NULL"); 
+            this.email="NULL"; 
+        }
+        
     }
     
     public void setPassword(String password){
-    
+        String regex = "^(?=?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"; 
+        
+        Pattern pat = Pattern.compile(regex); 
+        Matcher m = pat.matcher(password); 
+        if (m.find()){
+            System.out.println("Password : " + m.group()); 
+            this.password=password; 
+        }
+        else{
+            System.out.println("Password : NULL"); 
+            this.password="NULL"; 
+        }
     }
     
-    public void serJoinDate (String joinDate){
-    
+    public void setJoinDate (Calendar joinDate){
+        this.joinDate=joinDate; 
     }
     
-    public void printData(){
-           System.out.println(name); // print name customer
+    public void setJoinDate (int year, int month, int dayOfmonth){
+        this.joinDate= new GregorianCalendar(year, month-1, dayOfmonth); 
+    }
+    
+    public String toString(){
+        /*String string = ""; 
+        if (joinDate!=null)
+        {
+            Date date = joinDate.getTime(); 
+            SimpleDateFormat format1 = new SimpleDateFormat ("dd-MM-yyyy"); 
+            String date1 = format1.format(date); 
+            string =  
+                    "===================Customer================"+"\n"+
+                    "Id : "+ id+ "\n"+
+                    "Name : "+ name+ "\n"+
+                    "Email : "+ email+ "\n"+
+                    "Password : "+ password+ "\n"+
+                    "Join Date : "+ joinDate+ "\n"; 
+                }
+         else{
+             string =  
+                    "===================Customer================"+"\n"+
+                    "Id : "+ id+ "\n"+
+                    "Name : "+ name+ "\n"+
+                    "Email : "+ email+ "\n"+
+                    "Password : "+ password+ "\n"+
+                    "Join Date : "+ joinDate+ "\n"; 
+            }
+            
+        System.out.println(string); 
+        return string; */
+        
+        return 
+        "===================Customer================"+"\n"+
+                    "Id : "+ id+ "\n"+
+                    "Name : "+ name+ "\n"+
+                    "Email : "+ email+ "\n"+
+                    "Password : "+ password+ "\n"+
+                    "Join Date : "+ joinDate+ "\n";
     }
     
     

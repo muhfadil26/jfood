@@ -1,7 +1,7 @@
 
 /**
  * Write a description of class FoodCategory here.
- *
+ * this enum is used for Foodcategory
  * @author Muhamad Fadil
  * @version 5 Maret 2020
  */

@@ -50,7 +50,7 @@ public class Seller{
         return email; 
     }
     
-    public String getphoneNumber(){
+    public String getPhoneNumber(){
          /*
          * @return phoneNumber
          */
@@ -84,8 +84,13 @@ public class Seller{
         this.location=location; 
     }
     
-    public void printData(){
-        System.out.println(name); //print name seller
+    public String toString(){
+         return 
+        "===================Seller================"+"\n"+
+        "Id = "+ id+ "\n"+
+        "Name = "+ name+ "\n"+
+        "PhoneNumber = "+ phoneNumber+ "\n"+
+        "Location = "+ location+ "\n"; 
     }
     
     

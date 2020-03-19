@@ -1,8 +1,10 @@
+import java.util.GregorianCalendar; 
 
 public class JFood{
     public static void main (String[] args)
     {
- 
+        
+        
         Location locationbaru = new Location ("Tegal", "Jawa Tengah", "Kelahiranku"); 
         Seller sellerbaru = new Seller (28022020, "Muhamad Fadil", "muhamad.fadil@ui.ac.id", "087881490385", locationbaru); 
  
@@ -15,9 +17,9 @@ public class JFood{
         Promo promo2 = new Promo (1243, "hd43jdhj", 10000, 50000,true);
         
         //no.a
-        Customer customer1 = new Customer (12345,"Jony Jony", "jony@gmail.com", "rahasiadong","28-02-2020"); 
-        Customer customer2 = new Customer (12345,"Muhamad Fadil", "Muhamadfadil@gmail.com", "rahasiadong","28-02-2020");
-        Customer customer3 = new Customer (12345,"Hanifer ah", "fadhilah@gmail.com", "rahasiadong","28-02-2020");
+        Customer customer1 = new Customer (12345,"Jony Jony", "jony@gmail.com", "rahasia_Agka12"); 
+        Customer customer2 = new Customer (12345,"Muhamad Fadil", "Muhamadfadil@ui.ac.id", "rahasiadong", new GregorianCalendar(2019,03,14));
+        Customer customer3 = new Customer (12345,"Hanifer ah", "fadhilah@gmail.com", "rahasia", 2013, 03, 23);
         //no.b
         //no.b
         //Invoice invoicebaru = new Invoice (2603,123,"28-02-2020", customer, 399000,InvoiceStatus); 

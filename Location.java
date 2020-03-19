@@ -60,7 +60,11 @@ public class Location{
         this.description=description; 
     }
     
-    public void printData(){
-        System.out.println(province); //print province
+    public String toString(){
+         return 
+        "===================Customer================"+"\n"+
+        "Province = "+ province+ "\n"+
+        "City = "+ city+ "\n"+
+        "Description = "+ description+ "\n";
     }
 }

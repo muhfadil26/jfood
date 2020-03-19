@@ -85,14 +85,24 @@ public class Food{
         this.category=category; 
     }
     
-    public void printData(){
-        System.out.println("======================FOOD=============="); 
-        System.out.println("ID: " +id); 
-        System.out.println("Name: " +name); 
-        System.out.println("Seller: " +seller.getName()); 
-        System.out.println("City: " +seller.getLocation().getCity()); 
-        System.out.println("Price: " +price); 
-        System.out.println("Category: " +category); 
+    public String toString(){
+        /*
+         * System.out.println("======================FOOD=============="); 
+         * System.out.println("ID: " +id); 
+         * System.out.println("Name: " +name); 
+         * System.out.println("Seller: " +seller.getName()); 
+         * System.out.println("City: " +seller.getLocation().getCity()); 
+         * System.out.println("Price: " +price); 
+         * System.out.println("Category: " +category);
+         */ 
+         return 
+        "===================Food================"+"\n"+
+        "Id : "+ id+ "\n"+
+        "Name : "+ name+ "\n"+
+        "Seller : "+ seller+ "\n"+
+        "City : "+ getSeller().getLocation().getCity()+ "\n"+
+        "Price : "+ price+ "\n"+
+        "Category : "+ category+ "\n";
         
     }
     
