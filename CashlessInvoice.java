@@ -72,15 +72,15 @@ public class CashlessInvoice extends Invoice
     public String toString(){
         
         
-         
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         if(promo == null || promo.getActive()==false || super.getTotalPrice()<promo.getMinPrice()
         )
         
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Date: " + super.getFood().getName()); 
-            System.out.println("Customer: " + super.getDate()); 
+            System.out.println("Date: " + sdf.format(getDate().getTime())); 
+            System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Total Price: " + getTotalPrice()); 
             System.out.println("Status: " + super.getInvoiceStatus()); 
             System.out.println("Payment Type: " + PAYMENT_TYPE); 
@@ -90,8 +90,8 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Date: " + super.getFood().getName()); 
-            System.out.println("Customer: " + super.getDate()); 
+            System.out.println("Date: " + sdf.format(getDate().getTime())); 
+            System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Code Promo: " + promo.getCode());
             System.out.println("Total Price: " + getTotalPrice()); 
             System.out.println("Status: " + super.getInvoiceStatus()); 
