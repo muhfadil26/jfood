@@ -5,6 +5,14 @@
  * @author Muhamad Fadil
  * @version 13 Maret 2020
  */
+import java.util.*; 
+import java.util.Calendar; 
+import java.util.Date; 
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat; 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CashInvoice extends Invoice
 {
     
@@ -15,13 +23,14 @@ public class CashInvoice extends Invoice
      /*
      * metode konstraktor untuk CashInvoice
      */
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus) {
+    public CashInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus) {
         super(id, food, date, customer, invoiceStatus);
+         
     }
     /*
      * membuat metode konstraktor CashInvoice
      */
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee){
+    public CashInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee){
         super(id, food, date, customer, invoiceStatus);
         this.deliveryFee = deliveryFee;
     }
@@ -53,7 +62,8 @@ public class CashInvoice extends Invoice
         }
     }
 
-    public void printData() {
+    public String toString() {
+        
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
                             "Food Name: " + super.getFood().getName() + "\n" +
@@ -63,7 +73,8 @@ public class CashInvoice extends Invoice
                             "Customer Name: " + super.getCustomer().getName() + "\n" +
                             "Invoice Status: " + super.getInvoiceStatus().toString() + "\n" + 
                             "Payment Type: " + PAYMENT_TYPE.toString());
-    }
+    
    
-
+        return null; 
+    }
 }

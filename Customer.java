@@ -99,10 +99,13 @@ public class Customer{
     }
     
     public void setEmail(String email){
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+        String emailRegex = /*"^[a-zA-Z0-9_+&*-]+(?:\\."+ 
                             "[a-zA-Z0-9_+&*-]+)*@" + 
                             "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
-                            "A-Z]{2,7}$"; 
+                            "A-Z]{2,7}$"; */
+                            //"^([a-z\\d\\.]+)@([a-z\\d-]+)\\.([a-z]{2,8}(\\.[a-z]{2,8}))?$";
+                            "^[_A-Za-z0-9-\\+]+[\\w.&*_~]([_A-Za-z0-9-]+)*@[A-Za-z0-9]+(.+)(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"; 
+                            //"^(?!\\.)(?!.\\.$)(?!.*\\.\\.$)[\\w.&*_~]+@(.+)+$"; 
         Pattern pat = Pattern.compile(emailRegex);
         Matcher m = pat.matcher(email); 
         if (m.matches()){
@@ -111,13 +114,14 @@ public class Customer{
         }
         else{
             //System.out.println("Email : NULL"); 
-            this.email="NULL"; 
+            this.email=""; 
         }
         
     }
     
     public void setPassword(String password){
-        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"; 
+        String passwordRegex = //"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+                                "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z\\d]{6,}$";
         Pattern pat = Pattern.compile(passwordRegex); 
         Matcher m = pat.matcher(password); 
         if (m.matches()){
@@ -152,14 +156,17 @@ public class Customer{
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n"+
                     "Join Date : "+ date1+"\n"; 
+                    //"Join Date : "+ format1.format(getJoinDate().getTime())+"\n"; 
                 }
          else{
+           
              string =  
                     "===================Customer================"+"\n"+
                     "Id : "+ id+ "\n"+
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n";
+                    //"Join Date : "+ format1.format(getJoinDate().getTime())+"\n"; 
                     //"Join Date : "+ joinDate+ "\n"; 
             }
             

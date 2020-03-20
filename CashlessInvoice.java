@@ -5,6 +5,14 @@
  * @author Muhamad Fadil
  * @version 13 Maret 2020
  */
+import java.util.*; 
+import java.util.Calendar; 
+import java.util.Date; 
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat; 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CashlessInvoice extends Invoice
 {
     public static PaymentType PAYMENT_TYPE=PaymentType.Cashless;  
@@ -12,13 +20,13 @@ public class CashlessInvoice extends Invoice
     /*
      * metode konstraktor untuk CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus){
+    public CashlessInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
         super(id, food, date, customer, invoiceStatus);
     }
     /*
      * membuat metode konstraktor CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, Promo promo){
+    public CashlessInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus, Promo promo){
          super(id, food, date, customer, invoiceStatus);
          this.promo=promo;
     }
@@ -61,7 +69,10 @@ public class CashlessInvoice extends Invoice
     /*
      * metode untuk mengeprin data 
      */
-    public void printData(){
+    public String toString(){
+        
+        
+         
         if(promo == null || promo.getActive()==false || super.getTotalPrice()<promo.getMinPrice()
         )
         
@@ -88,7 +99,7 @@ public class CashlessInvoice extends Invoice
             System.out.println("==============================="); 
             
         }
-        
+        return null; 
     }
     
   

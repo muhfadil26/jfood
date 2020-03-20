@@ -4,12 +4,20 @@
 * @author  Muhamad Fadil
 * @version   2020-02-27 
 */
+import java.util.*; 
+import java.util.Calendar; 
+import java.util.Date; 
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat; 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public abstract class Invoice{
     private int id; 
     //private int idFood; 
     private Food food; 
-    private String date; 
+    private Calendar date; 
     protected int totalPrice; 
     private Customer customer; //connecting to Customer class
     private InvoiceStatus invoiceStatus; 
@@ -26,9 +34,11 @@ public abstract class Invoice{
     * @param customer, this variable is used for customer
     */
     
-    public Invoice (int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus){
+    public Invoice (int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
+        
         this.id=id; 
         this.food=food; 
+        //this.date=new isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         this.date=date; 
         this.customer=customer; 
         this.invoiceStatus=invoiceStatus; 
@@ -48,7 +58,7 @@ public abstract class Invoice{
         return food; 
     }
     
-    public String getDate(){
+    public Calendar getDate(){
          /*
          * @return date
          */
@@ -77,8 +87,14 @@ public abstract class Invoice{
     
     }
     
-    public void setDate (String date){
+    public Calendar setDate (Calendar date){
+        this.date=date; 
+        return date;  
+    }
     
+    public Calendar setDate (int year, int month, int dayOfMonth){
+            this.date= new GregorianCalendar(year,month,dayOfMonth);
+            return null; 
     }
     
     public void setTotalPrice (){
@@ -97,8 +113,8 @@ public abstract class Invoice{
         
     }
     
-    public void printData(){
-        
+    public String toString(){
+        return null; 
     }
     
 }
