@@ -63,13 +63,13 @@ public class JFood{
        Promo promo2 = new Promo (1243, "hd43jdhj", 10000, 50000,true);
        
        
-       CashlessInvoice invoice1 = new CashlessInvoice (3, food1, new GregorianCalendar(2020, 3, 20),customer1, InvoiceStatus.Ongoing); 
-       CashlessInvoice invoice2 = new CashlessInvoice (2, food2, new GregorianCalendar(2020,3,20),customer2, InvoiceStatus.Finished,promo1); 
-       CashlessInvoice invoice3 = new CashlessInvoice (4, food3, new GregorianCalendar(2020,3,20),customer3, InvoiceStatus.Ongoing); 
-       CashlessInvoice invoice4 = new CashlessInvoice (7, food4, new GregorianCalendar(2020,3,20),customer3, InvoiceStatus.Ongoing, promo2);
+       CashlessInvoice invoice1 = new CashlessInvoice (3, food1,customer1, InvoiceStatus.Ongoing); 
+       CashlessInvoice invoice2 = new CashlessInvoice (2, food2,customer2, InvoiceStatus.Finished,promo1); 
+       CashlessInvoice invoice3 = new CashlessInvoice (4, food3,customer3, InvoiceStatus.Ongoing); 
+       CashlessInvoice invoice4 = new CashlessInvoice (7, food4,customer3, InvoiceStatus.Ongoing, promo2);
          
-       CashInvoice invoicebaru1 = new CashInvoice (4, food1, new GregorianCalendar(2020,3,20),customer1, InvoiceStatus.Finished); 
-       CashInvoice invoicebaru2 = new CashInvoice (5, food2, new GregorianCalendar(2020, 3,20),customer2, InvoiceStatus.Finished, 13000);  
+       CashInvoice invoicebaru1 = new CashInvoice (4, food1,customer1, InvoiceStatus.Finished); 
+       CashInvoice invoicebaru2 = new CashInvoice (5, food2,customer2, InvoiceStatus.Finished, 13000);  
         
        //
         invoicebaru1.setTotalPrice();

@@ -20,14 +20,14 @@ public class CashlessInvoice extends Invoice
     /*
      * metode konstraktor untuk CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
-        super(id, food, date, customer, invoiceStatus);
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus){
+        super(id, food, customer, invoiceStatus);
     }
     /*
      * membuat metode konstraktor CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus, Promo promo){
-         super(id, food, date, customer, invoiceStatus);
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo){
+         super(id, food, customer, invoiceStatus);
          this.promo=promo;
     }
     /*
@@ -70,8 +70,6 @@ public class CashlessInvoice extends Invoice
      * metode untuk mengeprin data 
      */
     public String toString(){
-        
-        
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         if(promo == null || promo.getActive()==false || super.getTotalPrice()<promo.getMinPrice()
         )
@@ -79,6 +77,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
+            System.out.println("Food = "+ getFood().getName()); 
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Total Price: " + getTotalPrice()); 
@@ -90,6 +89,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
+            System.out.println("Food = "+ getFood().getName());
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Code Promo: " + promo.getCode());

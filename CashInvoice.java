@@ -23,15 +23,15 @@ public class CashInvoice extends Invoice
      /*
      * metode konstraktor untuk CashInvoice
      */
-    public CashInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus) {
-        super(id, food, date, customer, invoiceStatus);
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus) {
+        super(id, food, customer, invoiceStatus);
          
     }
     /*
      * membuat metode konstraktor CashInvoice
      */
-    public CashInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee){
-        super(id, food, date, customer, invoiceStatus);
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee){
+        super(id, food, customer, invoiceStatus);
         this.deliveryFee = deliveryFee;
     }
     /*
@@ -63,6 +63,7 @@ public class CashInvoice extends Invoice
     }
 
     public String toString() {
+        if((super.getDate()!=null) && (deliveryFee > 0)){
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
@@ -73,7 +74,19 @@ public class CashInvoice extends Invoice
                             "Customer Name: " + super.getCustomer().getName() + "\n" +
                             "Invoice Status: " + super.getInvoiceStatus().toString() + "\n" + 
                             "Payment Type: " + PAYMENT_TYPE.toString());
-    
+        }else{
+         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        System.out.println("===============INVOICE==========="); 
+        System.out.println("\nId: " + super.getId() + "\n" +
+                            "Food Name: " + super.getFood().getName() + "\n" +
+                            //"Delivery Fee: " + deliveryFee + "\n" +
+                            "Total Price: " + super.totalPrice + "\n" +
+                            "Customer Name: " + super.getCustomer().getName() + "\n" +
+                            "Invoice Status: " + super.getInvoiceStatus().toString() + "\n" + 
+                            "Payment Type: " + PAYMENT_TYPE.toString());                    
+                            
+        
+        }
    
         return null; 
     }

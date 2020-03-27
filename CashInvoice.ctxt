@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=CashInvoice
-comment1.params=id\ food\ date\ customer\ invoiceStatus
-comment1.target=CashInvoice(int,\ Food,\ java.util.Calendar,\ Customer,\ InvoiceStatus)
+comment1.params=id\ food\ customer\ invoiceStatus
+comment1.target=CashInvoice(int,\ Food,\ Customer,\ InvoiceStatus)
 comment1.text=\r\n\ metode\ konstraktor\ untuk\ CashInvoice\r\n
-comment2.params=id\ food\ date\ customer\ invoiceStatus\ deliveryFee
-comment2.target=CashInvoice(int,\ Food,\ java.util.Calendar,\ Customer,\ InvoiceStatus,\ int)
+comment2.params=id\ food\ customer\ invoiceStatus\ deliveryFee
+comment2.target=CashInvoice(int,\ Food,\ Customer,\ InvoiceStatus,\ int)
 comment2.text=\r\n\ membuat\ metode\ konstraktor\ CashInvoice\r\n
 comment3.params=
 comment3.target=PaymentType\ getPaymentType()

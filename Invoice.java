@@ -34,12 +34,12 @@ public abstract class Invoice{
     * @param customer, this variable is used for customer
     */
     
-    public Invoice (int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
+    public Invoice (int id, Food food, Customer customer, InvoiceStatus invoiceStatus){
         
         this.id=id; 
         this.food=food; 
         //this.date=new isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.date=date; 
+        this.date= new GregorianCalendar(); 
         this.customer=customer; 
         this.invoiceStatus=invoiceStatus; 
     }

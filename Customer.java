@@ -59,6 +59,7 @@ public class Customer{
        this.name=name; 
        this.email=email; 
        this.password=password; 
+       this.joinDate=joinDate; 
        setEmail(email); 
        setPassword(password);
     }

@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Invoice
-comment1.params=id\ food\ date\ customer\ invoiceStatus
-comment1.target=Invoice(int,\ Food,\ java.util.Calendar,\ Customer,\ InvoiceStatus)
+comment1.params=id\ food\ customer\ invoiceStatus
+comment1.target=Invoice(int,\ Food,\ Customer,\ InvoiceStatus)
 comment1.text=\r\n\ this\ method\ class\ invoice\ is\ used\ for\ getting\ information\ about\ food\ \ \r\n\ \r\n\ @param\ id,\ this\ variable\ is\ used\ for\ id\ invoice\r\n\ @param\ food,\ this\ variable\ is\ used\ for\ id\ Food\r\n\ @param\ date,\ this\ variable\ is\ used\ for\ date\ invoice\r\n\ @param\ totalPrice,\ this\ variable\ is\ used\ for\ total\ price\r\n\ @param\ customer,\ this\ variable\ is\ used\ for\ customer\r\n
 comment10.params=food
 comment10.target=void\ setFood(Food)
