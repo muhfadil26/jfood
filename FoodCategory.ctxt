@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=FoodCategory
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ FoodCategory\ here.\r\n\ this\ enum\ is\ used\ for\ Foodcategory\r\n\ @author\ Muhamad\ Fadil\r\n\ @version\ 5\ Maret\ 2020\r\n
-comment1.params=category
-comment1.target=FoodCategory(java.lang.String)
-comment2.params=
-comment2.target=java.lang.String\ toString()
-numComments=3
