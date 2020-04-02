@@ -8,35 +8,62 @@ import java.util.ArrayList;
  */
 public class DatabaseCustomer
 {
-    private ArrayList<Customer> CUSTOMER_DATABASE;
-    private int lastId;
+    // Instance variable: List of Seller
+    private static ArrayList<Customer> CUSTOMER_DATABASE =  new ArrayList<Customer>(0);;
+    private static int lastId=0;
 
-    public ArrayList<Customer> getCustomerDatabase() {
+    public static ArrayList<Customer> getCustomerDatabase()
+    {
         return CUSTOMER_DATABASE;
     }
 
-    public int getLastId(){
+    public static int getLastId()
+    {
         return lastId;
     }
 
-    public Customer getCustomerById(int id){
-        Customer value = null;
-        for (Customer customer : CUSTOMER_DATABASE)
-        {
-            if (customer.getId()==id){
-                value=customer;
+    public static Customer getCustomerById(int id)
+    {
+        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
+            if(id==CUSTOMER_DATABASE.get(i).getId()){
+                return CUSTOMER_DATABASE.get(i);
             }
         }
-        return value;
+        return null;
     }
 
-    public static boolean addCustomer(Customer customer){
+    public static boolean addCustomer(Customer customer)
+    {
+        if(CUSTOMER_DATABASE.size()>0){
+            boolean existingEmail=false;
+            for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
+                if(customer.getEmail()==CUSTOMER_DATABASE.get(i).getEmail()){
+                    existingEmail=true;
+                }
+            }
+            if(!existingEmail){
+                CUSTOMER_DATABASE.add(customer);
+                lastId=customer.getId();
+                return true;
+            }
+            else return false;
+        }
+        else
+        {
+            CUSTOMER_DATABASE.add(customer);
+            lastId=customer.getId();
+            return true;
+        }
+    }
+
+    public static boolean removeCustomer(int id)
+    {
+        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
+            if(id==CUSTOMER_DATABASE.get(i).getId()){
+                CUSTOMER_DATABASE.remove(i);
+                return true;
+            }
+        }
         return false;
     }
-
-    public static boolean removeCustomer(Customer customer){
-        return false;
-    }
-
-    
 }

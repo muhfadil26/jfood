@@ -5,93 +5,32 @@ import java.util.GregorianCalendar;
 public class JFood{
     public static void main (String[] args)
     {
+        //lokasi
        Location location1 = new Location("DKI Jakarta","Jakarta Selatan","Bagian Selatan");
        Location location2 = new Location("Jawa Tengah", "Tegal", "Kota Bahari");
-       
-       Seller seller1 = new Seller(1,"Muhamad Fadil","fadil_fadil@ui.acid","087881409890",location1);
-       Seller seller2 = new Seller(2,"Fadil Muhamad","fadil.muh26@gmail.com","02134521010",location2);
-       
-       Food food1=new Food(1,"Roti Keju",seller1,20000,FoodCategory.Bakery);
-       Food food2=new Food(2,"Kopi Tubruk",seller2,35500,FoodCategory.Coffe);
-       Food food3=new Food(3,"Manisan",seller2,25000,FoodCategory.Snacks);
-       //Food food4 = new Food (43, "Gado-gado", seller2,90000, FoodCategory.Coffe);
-       
-       Customer customer1=new Customer(111,"Fadil","Fadoli@gmail.com","aweK90awek",2019,6,12);
-       Customer customer2=new Customer(112,"MuhamadFadil","MuhamadFadil@host-net.com","90wekWekwek",new GregorianCalendar(2020,1,19));
-       Customer customer3=new Customer(113,"Luhfti Mufadel","Luhfti.Mufadel@gmail.com","Santui62");
-       
-       //promo
-       Promo promo1=new Promo(1,"lebaran",15050,25200,true);
-       //Discount discount1=new Discount (
-       
-       //print customer
-       customer1.toString();
-       customer2.toString();
-       customer3.toString();
-       
-       customer1.setEmail(",fadoli@gmail.com");
-       customer1.toString();
-       
-       customer1.setEmail("fadoli.iu@-gmail.com");
-       customer1.toString();
-       
-       customer1.setEmail("fadoli@gmail_net.com");
-       customer1.toString();
-       
-       customer1.setEmail("fadoli..op@ui.ac.id");
-       customer1.toString();
-       
-       customer1.setEmail("fadoli.op@ui.ac.id");
-       customer1.setPassword("23ui96");
-       customer1.toString();
-       
-       customer1.setPassword("234561");
-       customer1.toString();
-       
-       customer1.setEmail("Fadil-lo@officenet.com"); 
-       customer1.setPassword("123-Aws@qw");
-       customer1.toString();
-       
-       customer1.setEmail("fadilo-26@host-new.ui.ac.id"); 
-       customer1.setPassword("103203aSW");
-       customer1.toString();
-       
-       //customer2.toString();
-       
-       
-       
-       //Post test
-       Promo promo2 = new Promo (1243, "hd43jdhj", 10000, 50000,true);
-       
-       
-       CashlessInvoice invoice1 = new CashlessInvoice (3, food1,customer1);
-       CashlessInvoice invoice2 = new CashlessInvoice (2, food2,customer2);
-       CashlessInvoice invoice3 = new CashlessInvoice (4, food3,customer3);
-       //CashlessInvoice invoice4 = new CashlessInvoice (7, food4,customer3, InvoiceStatus.Ongoing, promo2);
-         
-       CashInvoice invoicebaru1 = new CashInvoice (4, food1,customer1);
-       CashInvoice invoicebaru2 = new CashInvoice (5, food2,customer2,13000);
-        
-       //
-        invoicebaru1.setTotalPrice();
-        invoicebaru2.setTotalPrice();
-        
-        //
-        invoice1.setTotalPrice();
-        invoice2.setTotalPrice();
-        invoice3.setTotalPrice();
-        //invoice4.setTotalPrice();
-        
-        invoice1.toString(); 
-        invoice2.toString(); 
-        invoice3.toString();
-        //invoice4.toString();
-        
-        
-        //
-        invoicebaru1.toString(); 
-        invoicebaru2.toString();
-       
+       DatabasePromo.addPromo(new Promo(1, "CuciGudang", 50000, 30000, true));
+
+       //Seller seller1 = new Seller(1,"Muhamad Fadil","fadil_fadil@ui.acid","087881409890",location1);
+       //Seller seller2 = new Seller(2,"Fadil Muhamad","fadil.muh26@gmail.com","02134521010",location2);
+
+        //pengesetan database untuk seler dan customer
+        DatabaseSeller.addSeller(new Seller(1, "Fadil", "fadil.fadil@ui.ac.id", "087881490385", location2));
+        DatabaseCustomer.addCustomer(new Customer(1, "Muhamad Fadil", "muhamad.fadil@ui.ac.id", "siapbos", 2020, 4, 2));
+        DatabaseCustomer.addCustomer(new Customer(2, "Luhtfi Mufadel", "Luhfti.mufadel@ui.ac.id", "mufadelluhfti", 2020, 4, 2));
+
+        DatabaseFood.addFood(new Food(1, "Dukuh Jogja", DatabaseSeller.getSellerById(1), 18000, FoodCategory.Western));
+        DatabaseFood.addFood(new Food(2, "Martabak", DatabaseSeller.getSellerById(1), 18000, FoodCategory.Rice));
+        DatabaseFood.addFood(new Food(3, "Straberry", DatabaseSeller.getSellerById(1), 16000, FoodCategory.Western));
+
+        CashInvoice cashInvoice1 = new CashInvoice(1, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(1), 52000);
+        CashInvoice cashInvoice2 = new CashInvoice(2, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(1));
+        CashlessInvoice cashlessInvoice1 = new CashlessInvoice(1, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1));
+        CashlessInvoice cashlessInvoice2 = new CashlessInvoice(2, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(1));
+
+        //mencetak
+        System.out.println(DatabaseCustomer.getCustomerDatabase());
+        System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Western));
+
     }
 }
 

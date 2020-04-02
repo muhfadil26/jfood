@@ -86,16 +86,7 @@ public class Food{
     }
     
     public String toString(){
-        /*
-         * System.out.println("======================FOOD=============="); 
-         * System.out.println("ID: " +id); 
-         * System.out.println("Name: " +name); 
-         * System.out.println("Seller: " +seller.getName()); 
-         * System.out.println("City: " +seller.getLocation().getCity()); 
-         * System.out.println("Price: " +price); 
-         * System.out.println("Category: " +category);
-         */ 
-         return 
+         return
         "===================Food================"+"\n"+
         "Id : "+ id+ "\n"+
         "Name : "+ name+ "\n"+
@@ -103,7 +94,6 @@ public class Food{
         "City : "+ getSeller().getLocation().getCity()+ "\n"+
         "Price : "+ price+ "\n"+
         "Category : "+ category+ "\n";
-        
     }
     
 }

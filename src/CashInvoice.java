@@ -55,12 +55,15 @@ public class CashInvoice extends Invoice
     }
     
     public void setTotalPrice() {
-        ArrayList<Food> foods = super.getFoods();
-        if (deliveryFee > 0) {
-            super.totalPrice = foods.getPrice() + deliveryFee;
-        } else {
-            super.totalPrice = foods.getPrice();
+        int foodPrice=0;
+        for(int i = 0; i < super.getFoods().size(); i++){
+            foodPrice+=super.getFoods().get(i).getPrice();
         }
+        if(deliveryFee>0)
+        {
+            super.totalPrice=foodPrice+deliveryFee;
+        }
+        else super.totalPrice=foodPrice;
     }
 
     public String toString() {
@@ -68,7 +71,7 @@ public class CashInvoice extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
-                            "Food Name: " + super.getFoods().getName() + "\n" +
+                            "Food: " + super.getFoods() + "\n" +
                             "Date: " + sdf.format(getDate().getTime()) + "\n" +
                             "Delivery Fee: " + deliveryFee + "\n" +
                             "Total Price: " + super.totalPrice + "\n" +
@@ -79,7 +82,7 @@ public class CashInvoice extends Invoice
          SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
-                            "Food Name: " + super.getFoods().getName() + "\n" +
+                            "Food: " + super.getFoods() + "\n" +
                             //"Delivery Fee: " + deliveryFee + "\n" +
                             "Total Price: " + super.totalPrice + "\n" +
                             "Customer Name: " + super.getCustomer().getName() + "\n" +

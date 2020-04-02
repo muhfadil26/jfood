@@ -15,49 +15,48 @@ public class DatabaseFood {
 
     public static boolean addFood(Food food) {
 
-        if (FOOD_DATABASE.add(food)) {
-            FOOD_DATABASE.indexOf(food);
-            return true;
-        }
-        return false;
+        FOOD_DATABASE.add(food);
+        lastId=food.getId();
+        return true;
     }
 
     public static boolean removeFood(int id) {
-        Food food = FOOD_DATABASE.get(id);
-        if (food != null) {
-            FOOD_DATABASE.remove(food);
-            return true;
+        for (int i = 0; i < FOOD_DATABASE.size(); i++) {
+            if(id==FOOD_DATABASE.get(i).getId()){
+                FOOD_DATABASE.remove(i);
+                return true;
+            }
         }
         return false;
     }
 
-    public static Food getFoodById(int idx){
-        Food food = FOOD_DATABASE.get(idx);
-
-        if (food != null) {
-            return food;
+    public static Food getFoodById(int id){
+        for (int i = 0; i < FOOD_DATABASE.size(); i++) {
+            if(id==FOOD_DATABASE.get(i).getId()){
+                return FOOD_DATABASE.get(i);
+            }
         }
         return null;
     }
 
-    public static ArrayList<Food> getFoodBySeller(int idseller) {
-        ArrayList<Food> ret = new ArrayList<>();
-        for (Food food: FOOD_DATABASE) {
-            if (food.getSeller().getId() == idseller) {
-                ret.add(food);
+    public static ArrayList<Food> getFoodBySeller(int sellerId) {
+        ArrayList<Food> filteredBySeller= new ArrayList<Food>(0);;
+        for (int i = 0; i < FOOD_DATABASE.size(); i++) {
+            if(sellerId==FOOD_DATABASE.get(i).getSeller().getId()){
+                filteredBySeller.add(FOOD_DATABASE.get(i));
             }
         }
-        return ret;
+        return filteredBySeller;
     }
 
     public static ArrayList<Food> getFoodByCategory(FoodCategory category) {
-        ArrayList<Food> ret = new ArrayList<>();
-        for (Food food: FOOD_DATABASE) {
-            if (food.getCategory() == category) {
-                ret.add(food);
+        ArrayList<Food> filteredByCategory= new ArrayList<Food>(0);;
+        for (int i = 0; i < FOOD_DATABASE.size(); i++) {
+            if(category==FOOD_DATABASE.get(i).getCategory()){
+                filteredByCategory.add(FOOD_DATABASE.get(i));
             }
         }
-        return ret;
+        return filteredByCategory;
     }
 
     public static ArrayList<Food> getFoodDatabase(){

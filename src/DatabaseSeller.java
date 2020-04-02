@@ -12,26 +12,6 @@ public class DatabaseSeller
     private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-    public static boolean addSeller(Seller seller) {
-
-        SELLER_DATABASE.add(seller);
-        lastId = SELLER_DATABASE.indexOf(seller);
-        return true;
-    }
-
-    public static boolean removeSeller(int id) {
-        Seller seller = SELLER_DATABASE.get(id);
-        if (seller != null) {
-            SELLER_DATABASE.remove(seller);
-            return true;
-        }
-        return false;
-    }
-
-    public static Seller getSeller(){
-        return null;
-    }
-
     public static ArrayList<Seller> getSellerDatabase(){
         return SELLER_DATABASE;
     }
@@ -41,11 +21,28 @@ public class DatabaseSeller
     }
 
     public static Seller getSellerById(int id) {
-        Seller seller = SELLER_DATABASE.get(id);
-        if (seller != null) {
-            return seller;
-        } else {
-            return null;
+        for (int i = 0; i < SELLER_DATABASE.size(); i++) {
+            if(id==SELLER_DATABASE.get(i).getId()){
+                return SELLER_DATABASE.get(i);
+            }
         }
+        return null;
+    }
+
+    public static boolean addSeller(Seller seller) {
+
+        SELLER_DATABASE.add(seller);
+        lastId = SELLER_DATABASE.indexOf(seller);
+        return true;
+    }
+
+    public static boolean removeSeller(int id) {
+        for (int i = 0; i < SELLER_DATABASE.size(); i++) {
+            if(id==SELLER_DATABASE.get(i).getId()){
+                SELLER_DATABASE.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }

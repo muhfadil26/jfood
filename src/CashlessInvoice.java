@@ -54,16 +54,15 @@ public class CashlessInvoice extends Invoice
      * metode yang digunakan untuk meng-eset total price dengan kodisi sebagai berikut 
      */
     public void setTotalPrice(){
-        if((promo != null) && (promo.getActive()==true) && (super.getFoods().getPrice()>=promo.getMinPrice())
-        )
-        {
-            super.totalPrice= getFoods().getPrice()-promo.getDiscount();
+        int foodPrice=0;
+        for(int i = 0; i < super.getFoods().size(); i++){
+            foodPrice+=super.getFoods().get(i).getPrice();
         }
-          
-        else
+        if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
         {
-             super.totalPrice = getFoods().getPrice();
+            super.totalPrice=foodPrice-promo.getDiscount();
         }
+        else super.totalPrice=foodPrice;
         
     }
     
@@ -78,7 +77,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Food = "+ getFoods().getName());
+            System.out.println("Food = "+ getFoods());
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Total Price: " + getTotalPrice()); 
@@ -90,7 +89,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Food = "+ getFoods().getName());
+            System.out.println("Food = "+ getFoods());
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Code Promo: " + promo.getCode());
