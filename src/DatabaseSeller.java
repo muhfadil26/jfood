@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * this class is for DatabaseSeller
@@ -7,26 +8,44 @@
  */
 public class DatabaseSeller
 {
-    private static String[] listSeller; 
-    
-    /**
-     * Constructor for objects of class DatabaseSeller
-     */
- 
-    public static boolean addSeller (Seller seller){
-        return false; 
+    // instance variables - replace the example below with your own
+    private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
+    private static int lastId = 0;
+
+    public static boolean addSeller(Seller seller) {
+
+        SELLER_DATABASE.add(seller);
+        lastId = SELLER_DATABASE.indexOf(seller);
+        return true;
     }
-    
-    public static boolean removeSeller(Seller seller){
-        return false; 
+
+    public static boolean removeSeller(int id) {
+        Seller seller = SELLER_DATABASE.get(id);
+        if (seller != null) {
+            SELLER_DATABASE.remove(seller);
+            return true;
+        }
+        return false;
     }
-    
+
     public static Seller getSeller(){
-        return null; 
+        return null;
     }
-    
-    public static String[] getListSeller(){
-        return listSeller; 
+
+    public static ArrayList<Seller> getSellerDatabase(){
+        return SELLER_DATABASE;
     }
-    
+
+    public static int getLastId(){
+        return lastId;
+    }
+
+    public static Seller getSellerById(int id) {
+        Seller seller = SELLER_DATABASE.get(id);
+        if (seller != null) {
+            return seller;
+        } else {
+            return null;
+        }
+    }
 }

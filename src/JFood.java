@@ -1,4 +1,5 @@
-import java.util.Calendar; 
+import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.GregorianCalendar; 
 
 public class JFood{
@@ -13,11 +14,11 @@ public class JFood{
        Food food1=new Food(1,"Roti Keju",seller1,20000,FoodCategory.Bakery);
        Food food2=new Food(2,"Kopi Tubruk",seller2,35500,FoodCategory.Coffe);
        Food food3=new Food(3,"Manisan",seller2,25000,FoodCategory.Snacks);
-       Food food4 = new Food (43, "Gado-gado", seller2,90000, FoodCategory.Coffe);
+       //Food food4 = new Food (43, "Gado-gado", seller2,90000, FoodCategory.Coffe);
        
        Customer customer1=new Customer(111,"Fadil","Fadoli@gmail.com","aweK90awek",2019,6,12);
-       Customer customer2=new Customer(112,"Weki","wekiwek@host-net.com","90wekWekwek",new GregorianCalendar(2020,1,19));
-       Customer customer3=new Customer(113,"Jaki","jaki98@joki.com","Santui62");
+       Customer customer2=new Customer(112,"MuhamadFadil","MuhamadFadil@host-net.com","90wekWekwek",new GregorianCalendar(2020,1,19));
+       Customer customer3=new Customer(113,"Luhfti Mufadel","Luhfti.Mufadel@gmail.com","Santui62");
        
        //promo
        Promo promo1=new Promo(1,"lebaran",15050,25200,true);
@@ -63,13 +64,13 @@ public class JFood{
        Promo promo2 = new Promo (1243, "hd43jdhj", 10000, 50000,true);
        
        
-       CashlessInvoice invoice1 = new CashlessInvoice (3, food1,customer1, InvoiceStatus.Ongoing); 
-       CashlessInvoice invoice2 = new CashlessInvoice (2, food2,customer2, InvoiceStatus.Finished,promo1); 
-       CashlessInvoice invoice3 = new CashlessInvoice (4, food3,customer3, InvoiceStatus.Ongoing); 
-       CashlessInvoice invoice4 = new CashlessInvoice (7, food4,customer3, InvoiceStatus.Ongoing, promo2);
+       CashlessInvoice invoice1 = new CashlessInvoice (3, food1,customer1);
+       CashlessInvoice invoice2 = new CashlessInvoice (2, food2,customer2);
+       CashlessInvoice invoice3 = new CashlessInvoice (4, food3,customer3);
+       //CashlessInvoice invoice4 = new CashlessInvoice (7, food4,customer3, InvoiceStatus.Ongoing, promo2);
          
-       CashInvoice invoicebaru1 = new CashInvoice (4, food1,customer1, InvoiceStatus.Finished); 
-       CashInvoice invoicebaru2 = new CashInvoice (5, food2,customer2, InvoiceStatus.Finished, 13000);  
+       CashInvoice invoicebaru1 = new CashInvoice (4, food1,customer1);
+       CashInvoice invoicebaru2 = new CashInvoice (5, food2,customer2,13000);
         
        //
         invoicebaru1.setTotalPrice();
@@ -79,12 +80,12 @@ public class JFood{
         invoice1.setTotalPrice();
         invoice2.setTotalPrice();
         invoice3.setTotalPrice();
-        invoice4.setTotalPrice();
+        //invoice4.setTotalPrice();
         
         invoice1.toString(); 
         invoice2.toString(); 
         invoice3.toString();
-        invoice4.toString();
+        //invoice4.toString();
         
         
         //

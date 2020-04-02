@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * this class for DatabaseCustomer
@@ -7,23 +8,35 @@
  */
 public class DatabaseCustomer
 {
-    private String[] listFood; 
-    
-    public static boolean addCustomer (Customer customer){
-        return true; 
+    private ArrayList<Customer> CUSTOMER_DATABASE;
+    private int lastId;
+
+    public ArrayList<Customer> getCustomerDatabase() {
+        return CUSTOMER_DATABASE;
     }
-    
-    public static boolean removeCustomer (Customer customer){
-        return true; 
+
+    public int getLastId(){
+        return lastId;
     }
-    
-    public static Customer getCustomer (){
-        return null; 
+
+    public Customer getCustomerById(int id){
+        Customer value = null;
+        for (Customer customer : CUSTOMER_DATABASE)
+        {
+            if (customer.getId()==id){
+                value=customer;
+            }
+        }
+        return value;
     }
-    
-    public static String[] getListCustomer (){
-        return null; 
+
+    public static boolean addCustomer(Customer customer){
+        return false;
     }
-    
+
+    public static boolean removeCustomer(Customer customer){
+        return false;
+    }
+
     
 }

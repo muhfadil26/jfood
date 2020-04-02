@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 public class CashlessInvoice extends Invoice
 {
@@ -20,14 +21,14 @@ public class CashlessInvoice extends Invoice
     /*
      * metode konstraktor untuk CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus){
-        super(id, food, customer, invoiceStatus);
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer){
+        super(id, foods, customer);
     }
     /*
      * membuat metode konstraktor CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo){
-         super(id, food, customer, invoiceStatus);
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo){
+         super(id, foods, customer);
          this.promo=promo;
     }
     /*
@@ -53,15 +54,15 @@ public class CashlessInvoice extends Invoice
      * metode yang digunakan untuk meng-eset total price dengan kodisi sebagai berikut 
      */
     public void setTotalPrice(){
-        if((promo != null) && (promo.getActive()==true) && (super.getFood().getPrice()>=promo.getMinPrice())
+        if((promo != null) && (promo.getActive()==true) && (super.getFoods().getPrice()>=promo.getMinPrice())
         )
         {
-            super.totalPrice= getFood().getPrice()-promo.getDiscount(); 
+            super.totalPrice= getFoods().getPrice()-promo.getDiscount();
         }
           
         else
         {
-             super.totalPrice = getFood().getPrice(); 
+             super.totalPrice = getFoods().getPrice();
         }
         
     }
@@ -77,7 +78,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Food = "+ getFood().getName()); 
+            System.out.println("Food = "+ getFoods().getName());
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Total Price: " + getTotalPrice()); 
@@ -89,7 +90,7 @@ public class CashlessInvoice extends Invoice
         {
             System.out.println("-----------INVOICE------------"); 
             System.out.println("ID: " + super.getId()); 
-            System.out.println("Food = "+ getFood().getName());
+            System.out.println("Food = "+ getFoods().getName());
             System.out.println("Date: " + sdf.format(getDate().getTime())); 
             System.out.println("Customer: " + super.getCustomer().getName()); 
             System.out.println("Code Promo: " + promo.getCode());

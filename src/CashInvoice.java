@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 public class CashInvoice extends Invoice
 {
@@ -23,15 +24,15 @@ public class CashInvoice extends Invoice
      /*
      * metode konstraktor untuk CashInvoice
      */
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus) {
-        super(id, food, customer, invoiceStatus);
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer) {
+        super(id, foods, customer);
          
     }
     /*
      * membuat metode konstraktor CashInvoice
      */
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee){
-        super(id, food, customer, invoiceStatus);
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee){
+        super(id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
     /*
@@ -54,11 +55,11 @@ public class CashInvoice extends Invoice
     }
     
     public void setTotalPrice() {
-        Food food = super.getFood();
+        ArrayList<Food> foods = super.getFoods();
         if (deliveryFee > 0) {
-            super.totalPrice = food.getPrice() + deliveryFee;
+            super.totalPrice = foods.getPrice() + deliveryFee;
         } else {
-            super.totalPrice = food.getPrice();
+            super.totalPrice = foods.getPrice();
         }
     }
 
@@ -67,7 +68,7 @@ public class CashInvoice extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
-                            "Food Name: " + super.getFood().getName() + "\n" +
+                            "Food Name: " + super.getFoods().getName() + "\n" +
                             "Date: " + sdf.format(getDate().getTime()) + "\n" +
                             "Delivery Fee: " + deliveryFee + "\n" +
                             "Total Price: " + super.totalPrice + "\n" +
@@ -78,14 +79,12 @@ public class CashInvoice extends Invoice
          SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         System.out.println("===============INVOICE==========="); 
         System.out.println("\nId: " + super.getId() + "\n" +
-                            "Food Name: " + super.getFood().getName() + "\n" +
+                            "Food Name: " + super.getFoods().getName() + "\n" +
                             //"Delivery Fee: " + deliveryFee + "\n" +
                             "Total Price: " + super.totalPrice + "\n" +
                             "Customer Name: " + super.getCustomer().getName() + "\n" +
                             "Invoice Status: " + super.getInvoiceStatus().toString() + "\n" + 
-                            "Payment Type: " + PAYMENT_TYPE.toString());                    
-                            
-        
+                            "Payment Type: " + PAYMENT_TYPE.toString());
         }
    
         return null; 
