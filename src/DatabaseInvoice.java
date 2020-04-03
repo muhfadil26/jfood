@@ -33,12 +33,13 @@ public class DatabaseInvoice {
 
     public static ArrayList<Invoice> getInvoiceByCustomer(int customerId)
     {
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if(customerId==INVOICE_DATABASE.get(i).getId()){
-                return INVOICE_DATABASE.get(i);
+        ArrayList<Invoice> array1 = new ArrayList<>();
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getCustomer().getId() == customerId) {
+                array1.add(invoice);
             }
         }
-        return null;
+        return array1;
     }
 
     public static boolean addInvoice(Invoice invoice)
@@ -50,12 +51,12 @@ public class DatabaseInvoice {
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus)
     {
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if(InvoiceStatus==INVOICE_DATABASE.get(i).getId()){
-                return INVOICE_DATABASE.get(i);
-            }
+        Invoice invoiceStatus1 = INVOICE_DATABASE.get(id);
+        if (invoiceStatus1 != null) {
+            INVOICE_DATABASE.remove(invoiceStatus1);
+            return true;
         }
-        return null;
+        return false;
     }
 
 
