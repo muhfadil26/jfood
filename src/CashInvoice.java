@@ -19,7 +19,7 @@ public class CashInvoice extends Invoice
     
     PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee; 
-    //int deliveryFee = 0;
+
 
      /*
      * metode konstraktor untuk CashInvoice
@@ -69,7 +69,7 @@ public class CashInvoice extends Invoice
     public String toString() {
         if((super.getDate()!=null) && (deliveryFee > 0)){
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
-        System.out.println("===============INVOICE==========="); 
+        //System.out.println("===============INVOICE===========");
         System.out.println("\nId: " + super.getId() + "\n" +
                             "Food: " + super.getFoods() + "\n" +
                             "Date: " + sdf.format(getDate().getTime()) + "\n" +
@@ -80,10 +80,10 @@ public class CashInvoice extends Invoice
                             "Payment Type: " + PAYMENT_TYPE.toString());
         }else{
          SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
-        System.out.println("===============INVOICE==========="); 
+        //System.out.println("===============INVOICE===========");
         System.out.println("\nId: " + super.getId() + "\n" +
                             "Food: " + super.getFoods() + "\n" +
-                            //"Delivery Fee: " + deliveryFee + "\n" +
+                            "Delivery Fee: 0" + "\n" +
                             "Total Price: " + super.totalPrice + "\n" +
                             "Customer Name: " + super.getCustomer().getName() + "\n" +
                             "Invoice Status: " + super.getInvoiceStatus().toString() + "\n" + 

@@ -86,14 +86,13 @@ public class Food{
     }
     
     public String toString(){
-         return
-        "===================Food================"+"\n"+
-        "Id : "+ id+ "\n"+
+        String string = "\n"+"Id : "+ id+ "\n"+
         "Name : "+ name+ "\n"+
         "Seller : "+ seller+ "\n"+
         "City : "+ getSeller().getLocation().getCity()+ "\n"+
         "Price : "+ price+ "\n"+
         "Category : "+ category+ "\n";
+        return string;
     }
     
 }

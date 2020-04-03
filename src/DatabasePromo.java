@@ -9,10 +9,15 @@ import java.util.ArrayList;
  */
 public class DatabasePromo
 {
-    private static ArrayList<Promo> PROMO_DATABASE =  new ArrayList<Promo>(0);
-    private static int lastId=0;
 
-    public static ArrayList<Promo> getPromoDatabase()
+    private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<>();
+    private static int lastId = 0;
+
+    public DatabasePromo()
+    {
+    }
+
+    public static ArrayList<Promo>  getPromoDatabase()
     {
         return PROMO_DATABASE;
     }
@@ -21,22 +26,20 @@ public class DatabasePromo
     {
         return lastId;
     }
-
     public static Promo getPromoById(int id)
     {
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            if(id==PROMO_DATABASE.get(i).getId()){
-                return PROMO_DATABASE.get(i);
-            }
+        Promo promo = PROMO_DATABASE.get(id);
+        if (promo != null) {
+            return promo;
         }
         return null;
     }
 
     public static Promo getPromoByCode(String code)
     {
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            if(code==PROMO_DATABASE.get(i).getCode()){
-                return PROMO_DATABASE.get(i);
+        for (Promo promo: PROMO_DATABASE) {
+            if (promo.getCode().equals(code)) {
+                return promo;
             }
         }
         return null;
@@ -44,61 +47,49 @@ public class DatabasePromo
 
     public static boolean addPromo(Promo promo)
     {
-        if( PROMO_DATABASE.size()>0)
-        {
-            boolean existingCode=false;
-            for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-                if(promo.getCode()==PROMO_DATABASE.get(i).getCode()){
-                    existingCode=true;
-                }
+        // put your code here
+        boolean samePromoCode = false;
+        for (Promo i: PROMO_DATABASE) {
+            if (promo.getCode() == i.getCode()) {
+                samePromoCode = true;
             }
-
-            if(!existingCode){
-                PROMO_DATABASE.add(promo);
-                lastId=promo.getId();
-                return true;
-            }
-            else return false;
         }
-        else
-        {
+
+        if (!samePromoCode) {
             PROMO_DATABASE.add(promo);
-            lastId=promo.getId();
-            return true;
-        }
-    }
-
-    public static boolean activatePromo(int id)
-    {
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            if(id==PROMO_DATABASE.get(i).getId()){
-                //PROMO_DATABASE.get(i).setActive(true);
-                return true;
-            }
+            lastId = PROMO_DATABASE.indexOf(promo);
         }
         return false;
     }
 
-    public static boolean deactivatePromo(int id)
+    public static boolean activePromo(int id)
     {
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            if(id==PROMO_DATABASE.get(i).getId()){
-               // PROMO_DATABASE.get(i).setActive(false);
-                return true;
-            }
+        Promo promo = PROMO_DATABASE.get(id);
+        if (promo != null) {
+            promo.setActive(true);
+            return true;
+        }
+        return false;
+    }
+    public static boolean deactivePromo(int id)
+    {
+        Promo promo = PROMO_DATABASE.get(id);
+        if (promo != null) {
+            promo.setActive(false);
+            return true;
         }
         return false;
     }
 
     public static boolean removePromo(int id)
     {
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            if(id==PROMO_DATABASE.get(i).getId()){
-                PROMO_DATABASE.remove(i);
-                return true;
-            }
+        Promo promo = PROMO_DATABASE.get(id);
+        if (promo != null) {
+            PROMO_DATABASE.remove(promo);
+            return true;
         }
         return false;
     }
+
 
 }

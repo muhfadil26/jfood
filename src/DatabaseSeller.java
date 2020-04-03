@@ -15,33 +15,40 @@ public class DatabaseSeller
     public static ArrayList<Seller> getSellerDatabase(){
         return SELLER_DATABASE;
     }
-
-    public static int getLastId(){
+    public static int getLastId()
+    {
         return lastId;
     }
 
-    public static Seller getSellerById(int id) {
-        for (int i = 0; i < SELLER_DATABASE.size(); i++) {
-            if(id==SELLER_DATABASE.get(i).getId()){
-                return SELLER_DATABASE.get(i);
+    public static Seller getSellerById(int id)
+    {
+        Seller value = null;
+        for(Seller seller : SELLER_DATABASE)
+        {
+            if(seller.getId()==lastId)
+            {
+                value=seller;
+            }
+            else
+            {
+                return value;
             }
         }
-        return null;
+
+        return value;
     }
-
-    public static boolean addSeller(Seller seller) {
-
+    public static boolean addSeller(Seller seller)
+    {
         SELLER_DATABASE.add(seller);
         lastId = SELLER_DATABASE.indexOf(seller);
         return true;
     }
 
     public static boolean removeSeller(int id) {
-        for (int i = 0; i < SELLER_DATABASE.size(); i++) {
-            if(id==SELLER_DATABASE.get(i).getId()){
-                SELLER_DATABASE.remove(i);
-                return true;
-            }
+        Seller seller = SELLER_DATABASE.get(id);
+        if (seller != null) {
+            SELLER_DATABASE.remove(seller);
+            return true;
         }
         return false;
     }

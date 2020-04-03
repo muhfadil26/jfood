@@ -75,11 +75,14 @@ public class Promo
     
     public String toString(){
          return 
-        "===================Promo================"+"\n"+
-        "Id = "+ id+ "\n"+
+
+        "\n"+"Id = "+ id+ "\n"+
         "Code = "+ code+ "\n"+
         "Discount = "+ discount+ "\n"+
         "MinPrice = "+ minPrice+ "\n"+
         "Active Status = "+ active+ "\n";
+    }
+
+    public void setActive(boolean b) {
     }
 }

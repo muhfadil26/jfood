@@ -24,45 +24,37 @@ public class DatabaseCustomer
 
     public static Customer getCustomerById(int id)
     {
-        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-            if(id==CUSTOMER_DATABASE.get(i).getId()){
-                return CUSTOMER_DATABASE.get(i);
-            }
+        Customer customer = CUSTOMER_DATABASE.get(id);
+        if (customer != null) {
+            return customer;
         }
         return null;
     }
 
     public static boolean addCustomer(Customer customer)
     {
-        if(CUSTOMER_DATABASE.size()>0){
-            boolean existingEmail=false;
-            for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-                if(customer.getEmail()==CUSTOMER_DATABASE.get(i).getEmail()){
-                    existingEmail=true;
-                }
+        // initialise instance variables
+        boolean sameEmail= false;
+        for (Customer i : CUSTOMER_DATABASE) {
+            if (customer.getEmail() == i.getEmail()) {
+                sameEmail = true;
             }
-            if(!existingEmail){
-                CUSTOMER_DATABASE.add(customer);
-                lastId=customer.getId();
-                return true;
-            }
-            else return false;
         }
-        else
-        {
+
+        if (!sameEmail) {
             CUSTOMER_DATABASE.add(customer);
-            lastId=customer.getId();
-            return true;
+            lastId = CUSTOMER_DATABASE.indexOf(customer);
         }
+        return false;
     }
 
     public static boolean removeCustomer(int id)
     {
-        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-            if(id==CUSTOMER_DATABASE.get(i).getId()){
-                CUSTOMER_DATABASE.remove(i);
-                return true;
-            }
+        // put your code here
+        Customer customer = CUSTOMER_DATABASE.get(id);
+        if (customer != null) {
+            CUSTOMER_DATABASE.remove(customer);
+            return true;
         }
         return false;
     }

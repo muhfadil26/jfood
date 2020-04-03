@@ -151,8 +151,8 @@ public class Customer{
             SimpleDateFormat format1 = new SimpleDateFormat ("dd-MM-yyyy"); 
             String date1 = format1.format(date); 
             string =  
-                    "===================Customer================"+"\n"+
-                    "Id : "+ id+ "\n"+
+
+                    "\n"+"Id : "+ id+ "\n"+
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n"+
@@ -162,8 +162,8 @@ public class Customer{
          else{
            
              string =  
-                    "===================Customer================"+"\n"+
-                    "Id : "+ id+ "\n"+
+
+                    "\n"+"Id : "+ id+ "\n"+
                     "Name : "+ name+ "\n"+
                     "Email : "+ email+ "\n"+
                     "Password : "+ password+ "\n";

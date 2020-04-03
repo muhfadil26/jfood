@@ -56,14 +56,16 @@ public class CashlessInvoice extends Invoice
     public void setTotalPrice(){
         int foodPrice=0;
         for(int i = 0; i < super.getFoods().size(); i++){
-            foodPrice+=super.getFoods().get(i).getPrice();
+            foodPrice=foodPrice+super.getFoods().get(i).getPrice();
         }
         if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
         {
             super.totalPrice=foodPrice-promo.getDiscount();
         }
-        else super.totalPrice=foodPrice;
-        
+        else {
+            super.totalPrice=foodPrice;
+        }
+
     }
     
     /*

@@ -86,8 +86,8 @@ public class Seller{
     
     public String toString(){
          return 
-        "===================Seller================"+"\n"+
-        "Id = "+ id+ "\n"+
+
+        "\n"+"Id = "+ id+ "\n"+
         "Name = "+ name+ "\n"+
         "PhoneNumber = "+ phoneNumber+ "\n"+
         "Location = "+ location+ "\n"; 
