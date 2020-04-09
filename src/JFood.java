@@ -35,7 +35,7 @@ public class JFood{
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, order2, DatabaseCustomer.getCustomerById(1)));
             Thread thread1 = new Thread(new PriceCalculator(DatabaseInvoice.getInvoiceById(DatabaseInvoice.getLastId())));
             thread1.start();
-            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 2, order1, DatabaseCustomer.getCustomerById(2)));
+            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, order1, DatabaseCustomer.getCustomerById(2)));
             Thread thread2 = new Thread(new PriceCalculator(DatabaseInvoice.getInvoiceById(DatabaseInvoice.getLastId())));
             thread2.start();
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, order1, DatabaseCustomer.getCustomerById(3)));
@@ -45,7 +45,7 @@ public class JFood{
         } catch (EmailAlreadyExistException e) {
             System.out.println(e.getMessage());
         } catch (CustomerNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println(e.getMessage());
         } catch (PromoCodeAlreadyExistException e) {
             System.out.println(e.getMessage());
@@ -56,7 +56,7 @@ public class JFood{
             System.out.println(e.getMessage());
         }
         finally {
-            System.out.println("=========Customer===========");
+            System.out.println("\n"+"=========Customer===========");
             for (Customer customer: DatabaseCustomer.getCustomerDatabase()){
                 System.out.println(customer.getName());
             }
@@ -76,16 +76,16 @@ public class JFood{
         }
 
     }
-        private static  class PriceCalculator implements Runnable {
-            Invoice input;
-            PriceCalculator(Invoice input){
-                this.input = input;
+        private static class PriceCalculator implements Runnable {
+            Invoice invoice;
+            PriceCalculator(Invoice invoice){
+                this.invoice= invoice;
             }
             @Override
             public void run() {
-                System.out.println("Calculating Invoice ID: " + input.getId());
-                input.setTotalPrice();
-                System.out.println("Finish calculating Invoice ID: " + input.getId());
+                System.out.println("\n"+"Calculating Invoice ID: " + invoice.getId());
+                invoice.setTotalPrice();
+                System.out.println("\n"+"Finish calculating Invoice ID: " + invoice.getId());
             }
         }
 
