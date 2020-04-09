@@ -20,14 +20,12 @@ public class JFood{
             DatabaseCustomer.addCustomer(new Customer(2, "Luhtfi Mufadel", "Luhfti.mufadel@ui.ac.id", "Mufadelluhfti26", 2020, 4, 2));
             DatabaseCustomer.addCustomer(new Customer(4, "Luhtfi", "Luhfti@ui.ac.id", "Mufadelluhfti", 2020, 4, 9));
 
-
             DatabaseFood.addFood(new Food(DatabaseFood.getlastId() + 1, "Dukuh Jogja", DatabaseSeller.getSellerById(1), 182000, FoodCategory.Western));
             DatabaseFood.addFood(new Food(DatabaseFood.getlastId() + 2, "Martabak", DatabaseSeller.getSellerById(2), 180000, FoodCategory.Rice));
             DatabaseFood.addFood(new Food(DatabaseFood.getlastId() + 3, "Straberry", DatabaseSeller.getSellerById(3), 16000, FoodCategory.Western));
 
             ArrayList<Food> order1 = DatabaseFood.getFoodByCategory(FoodCategory.Western);
             ArrayList<Food> order2 = DatabaseFood.getFoodByCategory(FoodCategory.Rice);
-
 
             DatabasePromo.addPromo(new Promo(3, "Liburan", 25000, 30545, true));
             DatabasePromo.addPromo(new Promo(2, "Liburan", 25000, 30545, true));
@@ -44,31 +42,42 @@ public class JFood{
             Thread thread3 = new Thread(new PriceCalculator(DatabaseInvoice.getInvoiceById(DatabaseInvoice.getLastId())));
             thread3.start();
 
-        } catch (SellerNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (FoodNotFoundException food) {
-            System.out.println(food.getMessage());
-        } catch (PromoCodeAlreadyExistException e) {
-            System.out.println(e.getMessage());
-            System.out.println("\n" + "====PROMO=====");
-            for (Promo promo : DatabasePromo.getPromoDatabase()) {
-                System.out.println(promo.getId());
-                System.out.println(promo.getCode());
-                System.out.println(promo.getDiscount());
-                System.out.println(promo.getMinPrice());
-                System.out.println(promo.getActive());
-
-            }
-
         } catch (EmailAlreadyExistException e) {
             System.out.println(e.getMessage());
+        } catch (CustomerNotFoundException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        } catch (PromoCodeAlreadyExistException e) {
+            System.out.println(e.getMessage());
+        }
+        catch (FoodNotFoundException food) {
+         System.out.println(food.getMessage());
+        }catch (SellerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        finally {
+            System.out.println("=========Customer===========");
+            for (Customer customer: DatabaseCustomer.getCustomerDatabase()){
+                System.out.println(customer.getName());
+            }
+
+            System.out.println("=========Promo===========");
+            for (Promo promo: DatabasePromo.getPromoDatabase()){
+                    System.out.println(promo.getId());
+                    System.out.println(promo.getCode());
+                    System.out.println(promo.getDiscount());
+                    System.out.println(promo.getMinPrice());
+                    System.out.println(promo.getActive());
+            }
+            System.out.println("=========Food===========");
+            for (Food food: DatabaseFood.getFoodDatabase()){
+                System.out.println(food.getName());
+            }
         }
 
     }
         private static  class PriceCalculator implements Runnable {
-
             Invoice input;
-
             PriceCalculator(Invoice input){
                 this.input = input;
             }

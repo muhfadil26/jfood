@@ -24,7 +24,7 @@ public class DatabaseCustomer
 
     public static Customer getCustomerById(int id) throws CustomerNotFoundException
     {
-        for(Customer customer : CUSTOMER_DATABASE){
+        Customer customer = CUSTOMER_DATABASE.get(id);
         if (customer != null) {
             return customer;
         }
@@ -38,12 +38,14 @@ public class DatabaseCustomer
         for (Customer i : CUSTOMER_DATABASE) {
             if (customer.getEmail() == i.getEmail()) {
                 sameEmail = true;
+                break;
             }
         }
 
         if (!sameEmail) {
             CUSTOMER_DATABASE.add(customer);
             lastId = CUSTOMER_DATABASE.indexOf(customer);
+            return true;
         }
         throw new EmailAlreadyExistException(customer);
     }
