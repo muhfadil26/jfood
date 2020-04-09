@@ -22,16 +22,16 @@ public class DatabaseCustomer
         return lastId;
     }
 
-    public static Customer getCustomerById(int id)
+    public static Customer getCustomerById(int id) throws CustomerNotFoundException
     {
-        Customer customer = CUSTOMER_DATABASE.get(id);
+        for(Customer customer : CUSTOMER_DATABASE){
         if (customer != null) {
             return customer;
         }
-        return null;
+        throw new CustomerNotFoundException(id);
     }
 
-    public static boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer) throws EmailAlreadyExistException
     {
         // initialise instance variables
         boolean sameEmail= false;
@@ -45,10 +45,10 @@ public class DatabaseCustomer
             CUSTOMER_DATABASE.add(customer);
             lastId = CUSTOMER_DATABASE.indexOf(customer);
         }
-        return false;
+        throw new EmailAlreadyExistException(customer);
     }
 
-    public static boolean removeCustomer(int id)
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException
     {
         // put your code here
         Customer customer = CUSTOMER_DATABASE.get(id);
@@ -56,6 +56,6 @@ public class DatabaseCustomer
             CUSTOMER_DATABASE.remove(customer);
             return true;
         }
-        return false;
+        throw new CustomerNotFoundException(id);
     }
 }

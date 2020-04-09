@@ -26,13 +26,13 @@ public class DatabaseFood {
         return lastId;
     }
 
-    public static Food getFoodById(int id)
+    public static Food getFoodById(int id) throws FoodNotFoundException
     {
         Food food = FOOD_DATABASE.get(id);
         if (food != null) {
             return food;
         }
-        return null;
+        throw new FoodNotFoundException(id);
     }
 
     public static ArrayList<Food> getFoodBySeller (int sellerId)
@@ -57,7 +57,7 @@ public class DatabaseFood {
         return i;
     }
 
-    public static boolean addFood(Food food)
+    public static boolean addFood(Food food) throws FoodNotFoundException
     {
         // put your code here
         if (FOOD_DATABASE.add(food)) {
@@ -72,13 +72,15 @@ public class DatabaseFood {
      * @return true, boolen return
      */
 
-    public static boolean removeFood(int id) {
+    public static boolean removeFood(int id) throws FoodNotFoundException
+    {
+
         Food food = FOOD_DATABASE.get(id);
         if (food != null) {
             FOOD_DATABASE.remove(food);
             return true;
         }
-        return false;
+        throw new FoodNotFoundException(id);
     }
 
 }

@@ -49,16 +49,12 @@ public class DatabaseInvoice {
         //ArrayList<Invoice> invoiceStatus1 = new ArrayList<>();
         Invoice invoiceStatus1 = INVOICE_DATABASE.get(id);
         for (Invoice invoice : INVOICE_DATABASE) {
-            if (invoiceStatus1.getInvoiceStatus() == InvoiceStatus.Ongoing){
+            if (invoiceStatus1.getInvoiceStatus() == InvoiceStatus.Ongoing) {
                 INVOICE_DATABASE.set(id, invoiceStatus1);
                 return true;
             }
-            else {
-                return false;
-            }
-
         }
-        return true;
+        return false;
     }
 
         public static boolean removeInvoice ( int id)
