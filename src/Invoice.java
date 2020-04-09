@@ -95,7 +95,7 @@ public abstract class Invoice{
     }
     
     public void setTotalPrice (){
-    
+
     }
     
     public void setCustomer (Customer customer){
