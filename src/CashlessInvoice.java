@@ -47,7 +47,7 @@ public class CashlessInvoice extends Invoice
      * metode untuk meng-set promo
      */
     public void setPromo(Promo promo){
-        
+        this.promo=promo;
     }
     
     /*

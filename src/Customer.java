@@ -59,12 +59,11 @@ public class Customer{
        this.name=name; 
        this.email=email; 
        this.password=password; 
-       this.joinDate=joinDate; 
+       this.joinDate= Calendar.getInstance();
        setEmail(email); 
        setPassword(password);
     }
-     
-    
+
    public int getId(){
          /*
          * @return id

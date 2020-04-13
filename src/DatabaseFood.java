@@ -48,23 +48,23 @@ public class DatabaseFood {
 
     public static ArrayList<Food> getFoodByCategory(FoodCategory category)
     {
-        ArrayList<Food> i = new ArrayList<>();
+        ArrayList<Food> array1 = new ArrayList<>();
         for (Food food: FOOD_DATABASE) {
             if (food.getCategory() == category) {
-                i.add(food);
+                array1.add(food);
             }
         }
-        return i;
+        return array1;
     }
 
-    public static boolean addFood(Food food) throws FoodNotFoundException
+    public static boolean addFood(Food food) //throws FoodNotFoundException
     {
         // put your code here
-        if (FOOD_DATABASE.add(food)) {
-            FOOD_DATABASE.indexOf(food);
-            return true;
-        }
-        return false;
+        FOOD_DATABASE.add(food);
+        FOOD_DATABASE.indexOf(food);
+        return true;
+
+        //throw new FoodNotFoundException(food.getId());
     }
 
     /**

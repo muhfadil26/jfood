@@ -13,6 +13,6 @@ public class CustomerNotFoundException extends Exception {
     }
 
     public String getMessage(){
-        return super.getMessage() + customer_error + "\n"+"not found";
+        return super.getMessage() + customer_error + " not found";
     }
 }

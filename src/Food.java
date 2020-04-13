@@ -74,7 +74,7 @@ public class Food{
     }
     
     public void setSeller (Seller seller){
-    
+        this.seller=seller;
     }
     
     public void setPrice(int price){

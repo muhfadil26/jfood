@@ -10,16 +10,12 @@ import java.util.ArrayList;
 
 
 public abstract class Invoice{
-    private int id; 
-    //private int idFood;
+    private int id;
     private ArrayList<Food> foods;
-    //private Food food;
     private Calendar date; 
     protected int totalPrice; 
     private Customer customer; //connecting to Customer class
-    private InvoiceStatus invoiceStatus; 
-    //private PaymentType paymentType; 
-    //private InvoiceStatus status; 
+    private InvoiceStatus invoiceStatus;
     
     /**
     * this method class invoice is used for getting information about food  
@@ -32,12 +28,13 @@ public abstract class Invoice{
     */
     
     public Invoice (int id, ArrayList<Food> foods, Customer customer){
-        
-        this.id=id; 
-        this.foods=foods;
-        //this.date=new isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.date= new GregorianCalendar(); 
-        this.customer=customer; 
+        Calendar calendar = Calendar.getInstance();
+
+        this.id = id;
+        this.foods = foods;
+        this.customer = customer;
+        this.date = new GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        this.invoiceStatus = InvoiceStatus.Ongoing;
 
     }
     
@@ -77,7 +74,7 @@ public abstract class Invoice{
     }
     
     public void setId (int id){
-    
+        this.id=id;
     }
     
     public void setFoods(ArrayList<Food> foods){
@@ -89,29 +86,20 @@ public abstract class Invoice{
         return date;  
     }
     
-    public Calendar setDate (int year, int month, int dayOfMonth){
+    public  void setDate (int year, int month, int dayOfMonth){
             this.date= new GregorianCalendar(year,month,dayOfMonth);
-            return null; 
     }
     
-    public void setTotalPrice (){
-
-    }
+    public abstract void setTotalPrice ();
     
     public void setCustomer (Customer customer){
-    
+        this.customer=customer;
     }
-    
-    public void setPaymentType (PaymentType paymentType){
-        
-    }
-    
+
     public void setInvoiceStatus (InvoiceStatus status){
-        
+        this.invoiceStatus=invoiceStatus;
     }
     
-    public String toString(){
-        return null; 
-    }
+    public abstract String toString();
     
 }

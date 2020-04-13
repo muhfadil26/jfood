@@ -4,7 +4,6 @@
  * @author Muhamad Fadil
  * @version 9 April 2020
  */
-import java.util.*;
 
 public class PromoCodeAlreadyExistException extends Exception{
     private Promo promo_error;
@@ -14,6 +13,6 @@ public class PromoCodeAlreadyExistException extends Exception{
     }
 
     public String getMessage(){
-        return super.getMessage()+promo_error.getCode() + "\n"+"already exist";
+        return super.getMessage()+promo_error.getCode() + " already exist";
     }
 }

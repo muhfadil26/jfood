@@ -9,8 +9,12 @@ import java.util.ArrayList;
 public class DatabaseCustomer
 {
     // Instance variable: List of Seller
-    private static ArrayList<Customer> CUSTOMER_DATABASE =  new ArrayList<Customer>(0);;
+    private static ArrayList<Customer> CUSTOMER_DATABASE =  new ArrayList<>();
     private static int lastId=0;
+
+    public DatabaseCustomer(){
+
+    }
 
     public static ArrayList<Customer> getCustomerDatabase()
     {
@@ -22,33 +26,30 @@ public class DatabaseCustomer
         return lastId;
     }
 
-    public static Customer getCustomerById(int id) throws CustomerNotFoundException
-    {
+    public static Customer getCustomerById(int id) throws CustomerNotFoundException {
         Customer customer = CUSTOMER_DATABASE.get(id);
         if (customer != null) {
             return customer;
+        } else {
+            throw new CustomerNotFoundException(id);
         }
-        throw new CustomerNotFoundException(id);
     }
 
     public static boolean addCustomer(Customer customer) throws EmailAlreadyExistException
     {
-        // initialise instance variables
-        boolean sameEmail= false;
-        for (Customer i : CUSTOMER_DATABASE) {
-            if (customer.getEmail() == i.getEmail()) {
-                sameEmail = true;
-                break;
+        for (Customer i : CUSTOMER_DATABASE)
+        {
+            if(i.getEmail().equals(customer.getEmail()))
+            {
+                throw new EmailAlreadyExistException (customer);
+                // return false;
             }
         }
-
-        if (!sameEmail) {
-            CUSTOMER_DATABASE.add(customer);
-            lastId = CUSTOMER_DATABASE.indexOf(customer);
-            return true;
-        }
-        throw new EmailAlreadyExistException(customer);
+        CUSTOMER_DATABASE.add(customer);
+        lastId = customer.getId();
+        return true;
     }
+
 
     public static boolean removeCustomer(int id) throws CustomerNotFoundException
     {

@@ -12,7 +12,7 @@ public class SellerNotFoundException extends Exception{
     }
 
     public String getMessage(){
-        return super.getMessage() +seller_error+"\n"+"not found";
+        return super.getMessage() +seller_error+" not found";
     }
 }
 

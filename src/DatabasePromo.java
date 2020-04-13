@@ -64,10 +64,13 @@ public class DatabasePromo
 
     public static boolean activePromo(int id)
     {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            promo.setActive(true);
-            return true;
+        for(Promo promo : PROMO_DATABASE)
+        {
+            if (promo.getId() == id)
+            {
+                promo.setActive(true);
+                return true;
+            }
         }
         return false;
     }

@@ -12,6 +12,10 @@ public class DatabaseSeller
     private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
+    public DatabaseSeller(){
+
+    }
+
     public static ArrayList<Seller> getSellerDatabase(){
         return SELLER_DATABASE;
     }
@@ -22,26 +26,24 @@ public class DatabaseSeller
 
     public static Seller getSellerById(int id) throws SellerNotFoundException
     {
-        Seller value = null;
-        for(Seller seller : SELLER_DATABASE)
+        for (Seller seller: SELLER_DATABASE)
         {
-            if(seller.getId()==lastId)
+            if (seller.getId() == id)
             {
-                value=seller;
-            }
-            else
-            {
-                return value;
+                return seller;
             }
         }
         throw new SellerNotFoundException(id);
+        // return null;
     }
 
-    public static boolean addSeller(Seller seller) throws SellerNotFoundException
+    public static boolean addSeller(Seller seller)
     {
+
         SELLER_DATABASE.add(seller);
         lastId = SELLER_DATABASE.indexOf(seller);
         return true;
+
     }
 
     public static boolean removeSeller(int id) throws SellerNotFoundException{

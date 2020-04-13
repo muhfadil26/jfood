@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class CashInvoice extends Invoice
 {
     
-    PaymentType PAYMENT_TYPE = PaymentType.Cash;
+    private static PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee; 
 
 
@@ -51,7 +51,7 @@ public class CashInvoice extends Invoice
      * metode untuk meng-set deliveryFee
      */
     public void setDeliveryFee(int deliveryFee){
-        
+        this.deliveryFee=deliveryFee;
     }
     
     public void setTotalPrice() {

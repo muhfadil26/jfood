@@ -61,9 +61,7 @@ public class Location{
     }
     
     public String toString(){
-         return 
-
-        "\n"+"Province = "+ province+ "\n"+
+         return "\n"+"Province = "+ province+ "\n"+
         "City = "+ city+ "\n"+
         "Description = "+ description+ "\n";
     }

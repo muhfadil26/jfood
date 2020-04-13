@@ -10,8 +10,12 @@ import java.util.ArrayList;
 public class DatabaseInvoice {
     private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<>();
     private static int lastId = 0;
-    private static int id;
+    //private static int id;
     //private static Object InvoiceStatus;
+
+    public DatabaseInvoice() {
+
+    }
 
     public static ArrayList<Invoice> getInvoiceDatabase() {
         return INVOICE_DATABASE;
@@ -31,26 +35,36 @@ public class DatabaseInvoice {
 
     public static ArrayList<Invoice> getInvoiceByCustomer(int customerId) {
         ArrayList<Invoice> array1 = new ArrayList<>();
-        for (Invoice invoice : INVOICE_DATABASE) {
+
+        for (Invoice invoice: INVOICE_DATABASE) {
             if (invoice.getCustomer().getId() == customerId) {
                 array1.add(invoice);
             }
         }
-        return array1;
+
+        if (!array1.isEmpty()) {
+            return array1;
+        }
+        return null;
     }
 
     public static boolean addInvoice(Invoice invoice) {
+        for (Invoice array1: INVOICE_DATABASE) {
+            if (array1.getCustomer().getId() == invoice.getCustomer().getId()
+                    && array1.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+                return false;
+            }
+        }
+
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;
     }
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
-        //ArrayList<Invoice> invoiceStatus1 = new ArrayList<>();
-        Invoice invoiceStatus1 = INVOICE_DATABASE.get(id);
-        for (Invoice invoice : INVOICE_DATABASE) {
-            if (invoiceStatus1.getInvoiceStatus() == InvoiceStatus.Ongoing) {
-                INVOICE_DATABASE.set(id, invoiceStatus1);
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id && invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)){
+                invoice.setInvoiceStatus(invoiceStatus);
                 return true;
             }
         }
@@ -59,10 +73,11 @@ public class DatabaseInvoice {
 
         public static boolean removeInvoice ( int id)
         {
-            Invoice invoice = INVOICE_DATABASE.get(id);
-            if (invoice != null) {
-                INVOICE_DATABASE.remove(invoice);
-                return true;
+            for (Invoice invoice: INVOICE_DATABASE) {
+                if (invoice.getId() == id) {
+                    INVOICE_DATABASE.remove(invoice);
+                    return true;
+                }
             }
             return false;
         }

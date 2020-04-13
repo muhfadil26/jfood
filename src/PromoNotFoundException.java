@@ -4,7 +4,6 @@
  * @version 9 April 2020
  */
 
-
 public class PromoNotFoundException extends Exception{
     private int promo_error;
     public PromoNotFoundException(int promo_input){
@@ -13,7 +12,7 @@ public class PromoNotFoundException extends Exception{
     }
 
     public String getMessage(){
-        return super.getMessage()+promo_error+"\n"+"not found";
+        return super.getMessage()+promo_error+" not found";
     }
 
 }

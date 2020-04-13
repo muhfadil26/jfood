@@ -50,29 +50,25 @@ public class Promo
     }
     
     public boolean getActive(){
-        return true; 
+        return active;
     }
         
     public void setId(int id){
-        
+        this.id=id;
     }
     
     public void setCode(String code){
-        
+     this.code=code;
     }
     
     public void setDiscount(int discount){
-        
+        this.discount=discount;
     }
     
     public void setMinPrice(int minPrice){
-        
+        this.minPrice=minPrice;
     }
-    
-    public void setActice(boolean active){
-        
-    }
-    
+
     public String toString(){
          return 
 
@@ -83,6 +79,7 @@ public class Promo
         "Active Status = "+ active+ "\n";
     }
 
-    public void setActive(boolean b) {
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

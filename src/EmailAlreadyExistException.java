@@ -12,6 +12,6 @@ public class EmailAlreadyExistException extends Exception{
     }
 
     public String getMessage(){
-        return super.getMessage() + customer_error.getEmail() + "\n"+"already exist";
+        return super.getMessage() + customer_error.getEmail() + " already exist";
     }
 }

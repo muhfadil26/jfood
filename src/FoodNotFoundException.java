@@ -15,6 +15,6 @@ public class FoodNotFoundException extends Exception {
     }
 
     public String getMessage(){
-        return super.getMessage() + food_error + "\n"+"not found";
+        return super.getMessage() + food_error + " not found";
     }
 }
