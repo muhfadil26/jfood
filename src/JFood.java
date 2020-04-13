@@ -106,7 +106,7 @@ public class JFood{
             System.out.println(a.getMessage());
         }
 
-        System.out.println("\n===Data Berhasil Masuk===");
+        System.out.println("\n===Data Yang Berhasil Masuk===");
         for (Promo promo : DatabasePromo.getPromoDatabase()) {
             System.out.println(promo + "\n");
         }
@@ -149,41 +149,33 @@ public class JFood{
             System.out.println(e.getMessage());
         }
 
-        try{
+        /**
+         * post test modul 7
+         */
+        //No.2
+        System.out.println("\n=====Modul Post test======");
+        try {
             DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, list1, DatabaseCustomer.getCustomerById(1),2200));
-        }catch (CustomerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-        try{
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, list2, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
-        }catch (PromoNotFoundException e){
-            System.out.println(e.getMessage());
-        }catch (CustomerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-
-        System.out.println("\n=====Multithreading======");
-        try {
-            Invoice invoice1 = new CashInvoice(DatabaseInvoice.getLastId() + 1, list1, DatabaseCustomer.getCustomerById(1), 1000);
+            Invoice invoice1 = new CashInvoice(DatabaseInvoice.getLastId()+1, list1, DatabaseCustomer.getCustomerById(1), 1000);
             DatabaseInvoice.addInvoice(invoice1);
-        } catch (CustomerNotFoundException a) {
-            System.out.println(a.getMessage());
-        }
-
-        try {
-            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId()+1, list2, DatabaseCustomer.getCustomerById(1), 2000);
+            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId()+2, list2, DatabaseCustomer.getCustomerById(1), 2000);
             DatabaseInvoice.addInvoice(invoice2);
-        } catch (CustomerNotFoundException a) {
-            System.out.println(a.getMessage());
-        }
-
-        try {
-            Invoice invoice3 = new CashInvoice(DatabaseInvoice.getLastId()+1, list3, DatabaseCustomer.getCustomerById(1), 3000);
+            Invoice invoice3 = new CashInvoice(DatabaseInvoice.getLastId()+3, list3, DatabaseCustomer.getCustomerById(1), 3000);
             DatabaseInvoice.addInvoice(invoice3);
         } catch (CustomerNotFoundException a) {
             System.out.println(a.getMessage());
-        }
+        }catch (OngoingInvoiceAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        } catch (PromoNotFoundException e){
+        System.out.println(e.getMessage());
+    }
+        //no.3 skenarionya
 
+
+
+        //THREAD
+        System.out.println("\n=====Thread======");
         for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
             PriceCalculator priceCalculator = new PriceCalculator(invoice);
