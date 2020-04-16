@@ -14,10 +14,15 @@ public class JFood{
     }
 
     public static void main (String[] args) throws CustomerNotFoundException {
+        Location location1 = new Location("Slemar", "Yogyakarta", "Bagian Selatan");
+        Location location2 = new Location("Blitar", "Jawa Timur", "dekat pantai");
+        Location location3 = new Location("Jonggol", "Jawa Barat", "Kota hujan");
+
+
         SpringApplication.run(JFood.class, args);
         //lokasi
-        Location location1 = new Location("DKI Jakarta", "Jakarta Selatan", "Bagian Selatan");
-        Location location2 = new Location("Jawa Tengah", "Tegal", "Kota Bahari");
+        Location location4 = new Location("DKI Jakarta", "Jakarta Selatan", "Bagian Selatan");
+        Location location5 = new Location("Jawa Tengah", "Tegal", "Kota Bahari");
 
         DatabaseSeller.addSeller(new Seller(1, "Fadil", "fadil.fadil@ui.ac.id", "087881490385", location2));
         DatabaseSeller.addSeller(new Seller(2, "Muhamad Fadil", "muh.fadil@ui.ac.id", "081821287015", location1));

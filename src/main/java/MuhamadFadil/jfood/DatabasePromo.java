@@ -36,14 +36,14 @@ public class DatabasePromo
         throw new PromoNotFoundException(id);
     }
 
-    public static Promo getPromoByCode(String code)
+    public static Promo getPromoByCode(String code) throws PromoCodeAlreadyExistException
     {
         for (Promo promo: PROMO_DATABASE) {
             if (promo.getCode().equals(code)) {
                 return promo;
             }
         }
-        return null;
+        throw new PromoCodeAlreadyExistException(DatabasePromo.getPromoByCode(code));
     }
 
     public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistException
