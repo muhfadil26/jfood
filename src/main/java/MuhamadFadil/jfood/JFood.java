@@ -18,24 +18,25 @@ public class JFood{
         Location location2 = new Location("Blitar", "Jawa Timur", "dekat pantai");
         Location location3 = new Location("Jonggol", "Jawa Barat", "Kota hujan");
 
-
-        SpringApplication.run(JFood.class, args);
-        //lokasi
         Location location4 = new Location("DKI Jakarta", "Jakarta Selatan", "Bagian Selatan");
         Location location5 = new Location("Jawa Tengah", "Tegal", "Kota Bahari");
 
         DatabaseSeller.addSeller(new Seller(1, "Fadil", "fadil.fadil@ui.ac.id", "087881490385", location2));
-        DatabaseSeller.addSeller(new Seller(2, "Muhamad Fadil", "muh.fadil@ui.ac.id", "081821287015", location1));
-        DatabaseSeller.addSeller(new Seller(2, "Muh", "muh@ui.ac.id", "085554287015", location1));
-        DatabaseSeller.addSeller(new Seller(3, "Muh", "muh@ui.ac.id", "085554287015", location1));
-        //pengesetan database untuk seler dan customer
+        DatabaseSeller.addSeller(new Seller(3, "Muhamad Fadil", "muh.fadil@ui.ac.id", "081821287015", location1));
+        DatabaseSeller.addSeller(new Seller(2, "Muha", "muha@ui.ac.id", "085554287015", location1));
+        DatabaseSeller.addSeller(new Seller(4, "Fadol Muh", "muhfadol@ui.ac.id", "085554347015", location3));
+        DatabaseSeller.addSeller(new Seller(5, "Muh", "muh@ui.ac.id", "085554287015", location4));
+
+        //DatabaseCustomer.getLastId()+1
+        SpringApplication.run(JFood.class, args);
+        //lokasi
         try {
             DatabaseSeller.getSellerById(200);
         }catch (SellerNotFoundException e){
             System.out.println(e.getMessage());
         }
         try {
-            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Muhamad Fadil", "fadil2345@ui.ac.id", "sia2pBos", 2020, 4, 2));
+            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId()+1, "Muhamad Fadil", "fadil2345@ui.ac.id", "sia2pBos", 2020, 4, 2));
         }catch (EmailAlreadyExistException e) { //pengecekan email yang sama
         System.out.println(e.getMessage());
          }
@@ -83,7 +84,7 @@ public class JFood{
         }
 
             try {
-            DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1, "Liburan", 25000, 30545, true));
+            DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1, "LebaranKuy", 25000, 30545, true));
         }catch (PromoCodeAlreadyExistException e) {
             System.out.println(e.getMessage());
         }
@@ -113,7 +114,7 @@ public class JFood{
         }
 
         try {
-            DatabaseFood.getFoodById(1);
+            DatabaseFood.getFoodById(2);
         } catch (FoodNotFoundException a) {
             System.out.println(a.getMessage());
         }

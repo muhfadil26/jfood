@@ -61,8 +61,10 @@ public class DatabaseFood {
     public static boolean addFood(Food food) //throws FoodNotFoundException
     {
         // put your code here
+        //FOOD_DATABASE.add(food);
+        //FOOD_DATABASE.indexOf(food);
         FOOD_DATABASE.add(food);
-        FOOD_DATABASE.indexOf(food);
+        lastId = food.getId();
         return true;
 
         //throw new FoodNotFoundException(food.getId());

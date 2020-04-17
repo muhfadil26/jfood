@@ -44,7 +44,7 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping(value = "/customer/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Customer loginCustomer(@RequestParam(value="email") String email, @RequestParam(value="password") String password){
         Customer customer = null;
         customer = DatabaseCustomer.getCustomerLogin(email, password);

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @RestController
 public class SellerController {
 
-    @RequestMapping(value = "/seller", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Seller> getAllSeller(){
         ArrayList<Seller> seller;
         seller = DatabaseSeller.getSellerDatabase();
@@ -35,7 +35,7 @@ public class SellerController {
         return seller;
     }
 
-    @RequestMapping(value = "/seller", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public void addSeller(@RequestParam(value = "id") int id,
                           @RequestParam(value = "name") String name,
                           @RequestParam(value = "email") String email,

@@ -40,11 +40,12 @@ public class DatabaseSeller
 
     public static boolean addSeller(Seller seller)
     {
-
+        //SELLER_DATABASE.add(seller);
+        //lastId = seller.getId();
+        //return true;
         SELLER_DATABASE.add(seller);
-        lastId = SELLER_DATABASE.indexOf(seller);
+        lastId = seller.getId();
         return true;
-
     }
 
     public static boolean removeSeller(int id) throws SellerNotFoundException{

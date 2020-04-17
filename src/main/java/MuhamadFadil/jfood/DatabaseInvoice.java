@@ -37,7 +37,7 @@ public class DatabaseInvoice {
         throw new InvoiceNotFoundException(id);
     }
 
-    public static ArrayList<Invoice> getInvoiceByCustomer(int customerId) {
+    public static ArrayList<Invoice> getInvoiceByCustomer(int customerId) throws CustomerNotFoundException {
         ArrayList<Invoice> array1 = new ArrayList<>();
 
         for (Invoice invoice: INVOICE_DATABASE) {
@@ -47,7 +47,7 @@ public class DatabaseInvoice {
         }
 
         if (!array1.isEmpty()) {
-            return array1;
+            throw new CustomerNotFoundException(customerId);
         }
         return null;
     }
