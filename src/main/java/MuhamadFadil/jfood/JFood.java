@@ -30,6 +30,53 @@ public class JFood{
         //DatabaseCustomer.getLastId()+1
         SpringApplication.run(JFood.class, args);
         //lokasi
+        //Post Test - modul 8
+        //1
+        ArrayList<Food> order1= new ArrayList<Food>();
+        ArrayList<Food> order2 = new ArrayList<Food>();
+        ArrayList<Food> order3 = new ArrayList<Food>();
+
+        try {
+            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Dukuh Jogja", DatabaseSeller.getSellerById(1), 182000, FoodCategory.Western));
+        }catch (SellerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Martabak", DatabaseSeller.getSellerById(2), 180000, FoodCategory.Rice));
+        }catch (SellerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Straberry", DatabaseSeller.getSellerById(4), 16000, FoodCategory.Coffe));
+        }catch (SellerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            order1.add(DatabaseFood.getFoodById(1));
+        }catch (FoodNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            order2.add(DatabaseFood.getFoodById(1));
+        }catch (FoodNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+        //No.2 (mengubah invoice status)
+
+
+
+
+
+
+
+
+
+
+
         try {
             DatabaseSeller.getSellerById(200);
         }catch (SellerNotFoundException e){
@@ -95,23 +142,7 @@ public class JFood{
             System.out.println(e.getMessage());
         }
 
-        try {
-            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Dukuh Jogja", DatabaseSeller.getSellerById(1), 182000, FoodCategory.Western));
-        }catch (SellerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
 
-        try{
-            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Martabak", DatabaseSeller.getSellerById(2), 180000, FoodCategory.Rice));
-        }catch (SellerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-
-         try{
-            DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Straberry", DatabaseSeller.getSellerById(4), 16000, FoodCategory.Western));
-        }catch (SellerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
 
         try {
             DatabaseFood.getFoodById(2);
@@ -135,29 +166,16 @@ public class JFood{
             System.out.println(seller + "\n");
         }
 
-        //No.9
-        ArrayList<Food> list1 = new ArrayList<Food>();
-        ArrayList<Food> list2 = new ArrayList<Food>();
-        ArrayList<Food> list3 = new ArrayList<Food>();
+        //No.
+
         try{
-            list1.add(DatabaseFood.getFoodById(1));
-        }catch (FoodNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            list1.add(DatabaseFood.getFoodById(1));
+            order1.add(DatabaseFood.getFoodById(1));
         }catch (FoodNotFoundException e){
             System.out.println(e.getMessage());
         }
 
         try{
-            list2.add(DatabaseFood.getFoodById(1));
-        }catch (FoodNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-
-        try{
-            list3.add(DatabaseFood.getFoodById(1));
+            order3.add(DatabaseFood.getFoodById(1));
         }catch (FoodNotFoundException e){
             System.out.println(e.getMessage());
         }
@@ -168,13 +186,13 @@ public class JFood{
         //No.2
         System.out.println("\n=====Modul Post test======");
         try {
-            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, list1, DatabaseCustomer.getCustomerById(1),2200));
-            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, list2, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
-            Invoice invoice1 = new CashInvoice(3, list1, DatabaseCustomer.getCustomerById(1), 1000);
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, order1, DatabaseCustomer.getCustomerById(1),2200));
+            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, order2, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
+            Invoice invoice1 = new CashInvoice(3,order1, DatabaseCustomer.getCustomerById(1), 1000);
             DatabaseInvoice.addInvoice(invoice1);
-            Invoice invoice2 = new CashInvoice(2, list2, DatabaseCustomer.getCustomerById(1), 2000);
+            Invoice invoice2 = new CashInvoice(2, order2, DatabaseCustomer.getCustomerById(1), 2000);
             DatabaseInvoice.addInvoice(invoice2);
-            Invoice invoice3 = new CashInvoice(1, list3, DatabaseCustomer.getCustomerById(1), 3000);
+            Invoice invoice3 = new CashInvoice(1, order3, DatabaseCustomer.getCustomerById(1), 3000);
             DatabaseInvoice.addInvoice(invoice3);
         } catch (CustomerNotFoundException a) {
             System.out.println(a.getMessage());
