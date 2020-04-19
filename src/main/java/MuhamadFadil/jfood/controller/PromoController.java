@@ -24,12 +24,7 @@ public class PromoController {
 
     @RequestMapping(value = "/{code}", method = RequestMethod.GET)
     public Promo getPromoByCode(@PathVariable String code){
-        Promo promo= null;
-        try{
-            promo = DatabasePromo.getPromoByCode(code);
-        }catch (PromoCodeAlreadyExistException e){
-            e.getMessage();
-        }
+        Promo promo = DatabasePromo.getPromoByCode(code);
         return promo;
     }
 

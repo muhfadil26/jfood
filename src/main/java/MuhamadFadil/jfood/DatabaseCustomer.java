@@ -27,28 +27,31 @@ public class DatabaseCustomer
         return lastId;
     }
 
-    public static Customer getCustomerById(int id) throws CustomerNotFoundException {
-        Customer customer = CUSTOMER_DATABASE.get(id);
-        if (customer != null) {
-            return customer;
-        } else {
-            throw new CustomerNotFoundException(id);
+    public static Customer getCustomerById(int customerId) throws CustomerNotFoundException {
+        for (Customer customer : CUSTOMER_DATABASE){
+            if (customer.getId() == customerId ){
+                return customer;
+            }
         }
+        throw new CustomerNotFoundException(customerId);
     }
 
     public static boolean addCustomer(Customer customer) throws EmailAlreadyExistException
     {
-        for (Customer i : CUSTOMER_DATABASE)
-        {
-            if(i.getEmail().equals(customer.getEmail()))
-            {
-                throw new EmailAlreadyExistException (customer);
-                // return false;
+        boolean sameEmailBuff = false;
+        for (Customer buff: CUSTOMER_DATABASE) {
+            if (customer.getEmail().equals(buff.getEmail())) {
+                sameEmailBuff = true;
+                break;
             }
         }
-        CUSTOMER_DATABASE.add(customer);
-        lastId = customer.getId();
-        return true;
+
+        if (!sameEmailBuff) {
+            CUSTOMER_DATABASE.add(customer);
+            lastId = customer.getId();
+            return true;
+        }
+        throw new EmailAlreadyExistException(customer);
     }
 
 

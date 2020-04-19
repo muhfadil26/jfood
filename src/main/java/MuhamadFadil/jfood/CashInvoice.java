@@ -26,6 +26,7 @@ public class CashInvoice extends Invoice
      */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer) {
         super(id, foods, customer);
+        setTotalPrice();
          
     }
     /*
@@ -34,6 +35,7 @@ public class CashInvoice extends Invoice
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee){
         super(id, foods, customer);
         this.deliveryFee = deliveryFee;
+        setTotalPrice();
     }
     /*
      * metode untuk mengakses class PamentType
@@ -69,7 +71,6 @@ public class CashInvoice extends Invoice
     public String toString() {
         if((super.getDate()!=null) && (deliveryFee > 0)){
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
-        //System.out.println("===============INVOICE===========");
         System.out.println("\nId: " + super.getId() + "\n" +
                             "Food: " + super.getFoods() + "\n" +
                             "Date: " + sdf.format(getDate().getTime()) + "\n" +
@@ -80,7 +81,6 @@ public class CashInvoice extends Invoice
                             "Payment Type: " + PAYMENT_TYPE.toString());
         }else{
          SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
-        //System.out.println("===============INVOICE===========");
         System.out.println("\nId: " + super.getId() + "\n" +
                             "Food: " + super.getFoods() + "\n" +
                             "Delivery Fee: 0" + "\n" +

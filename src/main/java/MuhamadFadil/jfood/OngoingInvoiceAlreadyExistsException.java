@@ -6,9 +6,9 @@ package MuhamadFadil.jfood;
  */
 
 public class OngoingInvoiceAlreadyExistsException extends Exception {
-    private int invoice_error;
+    private Invoice invoice_error;
 
-    public OngoingInvoiceAlreadyExistsException(int invoice_input){
+    public OngoingInvoiceAlreadyExistsException(Invoice invoice_input){
         super("\n"+"Ongoing Invoice ");
         this.invoice_error=invoice_input;
     }

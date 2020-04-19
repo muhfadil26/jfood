@@ -56,9 +56,9 @@ public class FoodController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Food addFood(@RequestParam(value = "name")String name,
-                                   @RequestParam(value = "price")int price,
-                                   @RequestParam(value = "category") FoodCategory category,
-                                   @RequestParam(value = "sellerId")int sellerId) throws SellerNotFoundException{
+                        @RequestParam(value = "sellerId")int sellerId,
+                        @RequestParam(value = "price")int price,
+                        @RequestParam(value = "category") FoodCategory category) throws SellerNotFoundException{
         Food food = new Food(DatabaseFood.getlastId()+1, name, DatabaseSeller.getSellerById(sellerId),price,FoodCategory.Western);
         DatabaseFood.addFood(food);
         return food;

@@ -23,6 +23,7 @@ public class CashlessInvoice extends Invoice
      */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer){
         super(id, foods, customer);
+        setTotalPrice();
     }
     /*
      * membuat metode konstraktor CashlessInvoice
@@ -30,6 +31,7 @@ public class CashlessInvoice extends Invoice
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo){
          super(id, foods, customer);
          this.promo=promo;
+         setTotalPrice();
     }
     /*
      * metode untuk mengakses class PamentType
@@ -103,7 +105,4 @@ public class CashlessInvoice extends Invoice
         }
         return null; 
     }
-    
-  
-    
 }

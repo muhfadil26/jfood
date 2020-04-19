@@ -8,7 +8,7 @@ public class CustomerNotFoundException extends Exception {
     private int customer_error;
 
     public CustomerNotFoundException(int customer_input){
-        super("\n"+"Customer ID: ");
+        super("Customer ID: ");
         this.customer_error=customer_input;
     }
 
