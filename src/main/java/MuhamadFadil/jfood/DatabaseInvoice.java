@@ -49,11 +49,11 @@ public class DatabaseInvoice {
     }
 
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
-        for (Invoice array1: INVOICE_DATABASE)
-            if (array1.getInvoiceStatus().equals(InvoiceStatus.Ongoing))
-                if (array1.getCustomer().getId() == invoice.getCustomer().getId()) {
-                    throw new OngoingInvoiceAlreadyExistsException(invoice);
-                }
+        for (Invoice array1 : INVOICE_DATABASE) {
+            if(array1.getCustomer().equals(invoice.getCustomer()) && invoice.getInvoiceStatus().equals(InvoiceStatus.Finished)) {
+                throw new OngoingInvoiceAlreadyExistsException(invoice);
+            }
+        }
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;

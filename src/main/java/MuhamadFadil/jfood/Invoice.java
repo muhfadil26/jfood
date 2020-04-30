@@ -97,7 +97,7 @@ public abstract class Invoice{
         this.customer=customer;
     }
 
-    public void setInvoiceStatus (InvoiceStatus status){
+    public void setInvoiceStatus (InvoiceStatus invoiceStatus){
         this.invoiceStatus=invoiceStatus;
     }
     

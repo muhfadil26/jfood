@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.*;
  * @version 14 Maret 2020
  */
 
-@RequestMapping("/customer")
+//@RequestMapping("/customer")
+@CrossOrigin(origins = "",allowedHeaders = "")
 @RestController
 public class CustomerController {
-    @RequestMapping("")
+    @RequestMapping("/customer")
     public String indexPage(@RequestParam(value = "name", defaultValue = "word")String name){
         return "Hello " + name;
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("/customer/{id}")
     public Customer getCustomerById(@PathVariable int id){
         Customer customer = null;
         try{
@@ -30,7 +31,7 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/customer/register", method = RequestMethod.POST)
     public Customer registerCustomer (@RequestParam(value = "name") String name,
                                  @RequestParam(value = "email") String email,
                                  @RequestParam(value = "password") String password){
@@ -44,7 +45,7 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/customer/login", method = RequestMethod.POST)
     public Customer loginCustomer(@RequestParam(value="email") String email,
                                   @RequestParam(value="password") String password){
         Customer customer = null;

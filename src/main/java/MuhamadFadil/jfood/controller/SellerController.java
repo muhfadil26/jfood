@@ -11,27 +11,26 @@ import java.util.ArrayList;
  * @version 16 Maret 2020
  */
 
-@RequestMapping("/seller")
+//@RequestMapping("/seller")
+@CrossOrigin(origins = "",allowedHeaders = "")
 @RestController
 public class SellerController {
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/seller", method = RequestMethod.POST)
     public ArrayList<Seller> getAllSeller(){
-        /*ArrayList<Seller> seller;
-        seller = DatabaseSeller.getSellerDatabase();
-        return seller;*/
-        return DatabaseSeller.getSellerDatabase();
+        ArrayList<Seller> seller = DatabaseSeller.getSellerDatabase();
+        return seller;
+        //return DatabaseSeller.getSellerDatabase();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/seller/{id}", method = RequestMethod.GET)
     public Seller getSellerById(@PathVariable int id) throws SellerNotFoundException {
         Seller seller = DatabaseSeller.getSellerById(id);
         return seller;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Seller addSeller(//@RequestParam(value = "id") int id,
-                          @RequestParam(value = "name") String name,
+    @RequestMapping(value = "/seller/add", method = RequestMethod.POST)
+    public Seller addSeller(@RequestParam(value = "name") String name,
                           @RequestParam(value = "email") String email,
                           @RequestParam(value = "phoneNumber") String phoneNumber,
                           @RequestParam(value = "province") String province,

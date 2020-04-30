@@ -13,18 +13,19 @@ import java.util.ArrayList;
  * @version 16 Maret 2020
  */
 
-@RequestMapping("/food")
+//@RequestMapping("/food")
+@CrossOrigin(origins = "",allowedHeaders = "")
 @RestController
 public class FoodController {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/food", method = RequestMethod.GET)
     public ArrayList<Food> getAllFood(){
         ArrayList<Food> food;
         food = DatabaseFood.getFoodDatabase();
         return food;
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("/food/{id}")
     public Food getFoodById(@PathVariable int id){
         Food food = null;
         try{
@@ -36,7 +37,7 @@ public class FoodController {
         return food;
     }
 
-    @RequestMapping(value = "/seller/{sellerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/food/seller/{sellerId}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId){
         ArrayList<Food> food = null;
         try {
@@ -47,14 +48,14 @@ public class FoodController {
         return food;
     }
 
-    @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/food/category/{category}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodByCategory (@PathVariable FoodCategory category){
         ArrayList<Food> food = null;
         food = DatabaseFood.getFoodByCategory(category);
         return food;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/food", method = RequestMethod.POST)
     public Food addFood(@RequestParam(value = "name")String name,
                         @RequestParam(value = "sellerId")int sellerId,
                         @RequestParam(value = "price")int price,
