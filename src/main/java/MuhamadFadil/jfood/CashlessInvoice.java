@@ -20,6 +20,9 @@ public class CashlessInvoice extends Invoice
     private Promo promo; 
     /*
      * metode konstraktor untuk CashlessInvoice
+     * * @param id, digunakan untuk id Food
+     * @param foods, digunakan untuk list Food
+     * @param customer, digunakan untuk pemanggilan customer
      */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer){
         super(id, foods, customer);
@@ -27,6 +30,10 @@ public class CashlessInvoice extends Invoice
     }
     /*
      * membuat metode konstraktor CashlessInvoice
+     * * @param id, digunakan untuk id Food
+     * @param foods, digunakan untuk list Food
+     * @param customer, digunakan untuk pemanggilan customer
+     * @param promo, digunakan untuk melakukan pemberian code promo
      */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo){
          super(id, foods, customer);
@@ -40,13 +47,15 @@ public class CashlessInvoice extends Invoice
          return PAYMENT_TYPE; 
     }
     /*
-     * metode accessor getter untuk promo 
+     * metode accessor getter untuk promo
+     * @param promo, digunakan untuk mendapatkan promo
      */
     public Promo getPromo(){
          return promo; 
     }
     /*
      * metode untuk meng-set promo
+     * @param promo, digunakan untuk memberikan nilai promo
      */
     public void setPromo(Promo promo){
         this.promo=promo;

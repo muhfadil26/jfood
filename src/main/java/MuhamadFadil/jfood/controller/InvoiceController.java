@@ -6,7 +6,7 @@ import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 
 /**
- * this class is Controller Invoice
+ * kelas InvoiceController digunanakn untuk mengontrol invoice
  *
  * @author Muhamad Fadil
  * @version 17 Maret 2020
@@ -73,7 +73,7 @@ public class InvoiceController
     @RequestMapping(value = "/invoice/createCashInvoice", method = RequestMethod.POST)
     public Invoice addCashInvoice(@RequestParam(value = "foodIdList") ArrayList<Integer> foodIdList,
                                   @RequestParam(value = "customerId") int customerId,
-                                  @RequestParam(value = "deliveryFee", defaultValue = "0") int deliveryFee) {
+                                  @RequestParam(value = "deliveryFee") int deliveryFee) {
 
         ArrayList<Food> foodList = new ArrayList<>();
         //Customer customer = null;
@@ -86,14 +86,16 @@ public class InvoiceController
         }
 
         try{
-            Invoice invoice = new CashInvoice(DatabaseInvoice.getLastId()+1, foodList, DatabaseCustomer.getCustomerById(customerId),deliveryFee);
+            Invoice invoice = new CashInvoice(DatabaseInvoice.getLastId()+1, foodList, DatabaseCustomerPostgre.getCustomer(customerId),deliveryFee);
             DatabaseInvoice.addInvoice(invoice);
             invoice.setTotalPrice();;
             return invoice;
-        }catch (CustomerNotFoundException e){
-            e.getMessage();
-            return null;
-        }catch (OngoingInvoiceAlreadyExistsException e){
+        }
+        //catch (CustomerNotFoundException e){
+            //e.getMessage();
+          //  return null;
+        //}
+        catch (OngoingInvoiceAlreadyExistsException e){
             e.getMessage();
             return null;
         }
@@ -116,14 +118,16 @@ public class InvoiceController
         }
 
         try{
-            Invoice invoice = new CashlessInvoice(DatabaseInvoice.getLastId()+1, foodList, DatabaseCustomer.getCustomerById(customerId), DatabasePromo.getPromoByCode(promoCode));
+            Invoice invoice = new CashlessInvoice(DatabaseInvoice.getLastId()+1, foodList, DatabaseCustomerPostgre.getCustomer(customerId), DatabasePromo.getPromoByCode(promoCode));
             DatabaseInvoice.addInvoice(invoice);
             invoice.setTotalPrice();
             return invoice;
-        }catch (CustomerNotFoundException e){
-            e.getMessage();
-            return null;
-        }catch (OngoingInvoiceAlreadyExistsException e){
+        }
+        //catch (CustomerNotFoundException e){
+          //  e.getMessage();
+            //return null;
+        //}
+        catch (OngoingInvoiceAlreadyExistsException e){
             e.getMessage();
             return null;
         }

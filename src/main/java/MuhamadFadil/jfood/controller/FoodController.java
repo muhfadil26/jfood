@@ -7,7 +7,7 @@ import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 
 /**
- * this class is ControllerCustomer
+ * kelas ini digunakan sebagai kontroler untuk Food
  *
  * @author Muhamad Fadil
  * @version 16 Maret 2020
@@ -25,9 +25,9 @@ public class FoodController {
         return food;
     }
 
-    @RequestMapping("/food/{id}")
-    public Food getFoodById(@PathVariable int id){
-        Food food = null;
+    @RequestMapping(value = "/food/{id}", method = RequestMethod.GET)
+    public Food getFoodById(@PathVariable int id)  {
+        Food food=null;
         try{
             food = DatabaseFood.getFoodById(id);
         }catch (FoodNotFoundException e){

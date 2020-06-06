@@ -1,6 +1,6 @@
 package MuhamadFadil.jfood;
 /**
- * Write a description of class CashInvoice here.
+ * kelas ini digunakan untuk kelas invoice yang melakukan pembayaran secara cash
  *
  * @author Muhamad Fadil
  * @version 13 Maret 2020
@@ -18,11 +18,13 @@ public class CashInvoice extends Invoice
 {
     
     private static PaymentType PAYMENT_TYPE = PaymentType.Cash;
-    private int deliveryFee; 
-
+    private int deliveryFee;
 
      /*
      * metode konstraktor untuk CashInvoice
+     * @param id, digunakan untuk id Food
+     * @param foods, digunakan untuk list Food
+     * @param customer, digunakan untuk pemanggilan customer
      */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer) {
         super(id, foods, customer);
@@ -31,6 +33,10 @@ public class CashInvoice extends Invoice
     }
     /*
      * membuat metode konstraktor CashInvoice
+     * * @param id, digunakan untuk id Food
+     * @param foods, digunakan untuk list Food
+     * @param customer, digunakan untuk pemanggilan customer
+     * @param deliveryFee, diguanakn untuk menginisialisasi ongkos kirim
      */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee){
         super(id, foods, customer);
@@ -51,6 +57,7 @@ public class CashInvoice extends Invoice
     }
      /*
      * metode untuk meng-set deliveryFee
+     * @param deliveryFee, digunakan untuk mengatur ongkos kirim
      */
     public void setDeliveryFee(int deliveryFee){
         this.deliveryFee=deliveryFee;

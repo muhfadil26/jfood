@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * this class is ControllerCustomer
+ * kelas PromoController digunakan untuk melakukan control promo
  *
  * @author Muhamad Fadil
  * @version 16 Maret 2020
@@ -29,19 +29,19 @@ public class PromoController {
         return promo;
     }
 
-    @RequestMapping(value = "/promo", method = RequestMethod.POST)
+    @RequestMapping(value = "/promo/add", method = RequestMethod.POST)
     public Promo addPromo(@RequestParam(value = "code") String code,
                           @RequestParam(value = "discount") int discount,
                           @RequestParam(value = "minPrice") int minPrice,
                           @RequestParam(value = "active") boolean active){
-        Promo promo = null;
+        Promo promo = new Promo(DatabaseSeller.getLastId()+1,code,discount,minPrice,active);
         try{
-            promo = new Promo(DatabaseSeller.getLastId()+1,code,discount,minPrice,active);
             DatabasePromo.addPromo(promo);
         }catch (PromoCodeAlreadyExistException e){
             e.getMessage();
         }
         return promo;
+
     }
 
 }

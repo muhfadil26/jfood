@@ -10,6 +10,11 @@ import java.util.*;
 
 public class FoodNotFoundException extends Exception {
     private int food_error;
+
+    /**
+     * konstraktor yang digunakan untuk inputan id food
+     * @param food_input, input yang digunakan untuk mengecek class food
+     */
     public FoodNotFoundException (int food_input){
         //super();
         super("\n"+"Food ID: ");

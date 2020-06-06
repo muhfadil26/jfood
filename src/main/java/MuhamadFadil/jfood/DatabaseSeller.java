@@ -13,18 +13,36 @@ public class DatabaseSeller
     private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
+    /**
+     * konstraktor yang digunakan untuk database seller
+     */
     public DatabaseSeller(){
 
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendapatkan seller database berupa array
+     * @return
+     */
     public static ArrayList<Seller> getSellerDatabase(){
         return SELLER_DATABASE;
     }
+
+    /**
+     * konstraktor yang digunakan mendapatkan id terakhir
+     * @return
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendaptkan seller berdasarkan idnya
+     * @param id, digunakan untuk id seller
+     * @return
+     * @throws SellerNotFoundException, mengecek ada tidaknya seller
+     */
     public static Seller getSellerById(int id) throws SellerNotFoundException
     {
         for (Seller seller: SELLER_DATABASE)
@@ -38,6 +56,11 @@ public class DatabaseSeller
         // return null;
     }
 
+    /**
+     * konstraktor yang digunakan untuk menambahkan seller
+     * @param seller, digunakan untuk mengkoneksikan ke class seller
+     * @return
+     */
     public static boolean addSeller(Seller seller)
     {
         //SELLER_DATABASE.add(seller);
@@ -48,6 +71,12 @@ public class DatabaseSeller
         return true;
     }
 
+    /**
+     * konstraktor yang digunakan untuk menghapus seller
+     * @param id, digunakan untuk id seller
+     * @return
+     * @throws SellerNotFoundException, mengecek ada tidaknya seller
+     */
     public static boolean removeSeller(int id) throws SellerNotFoundException{
         Seller seller = SELLER_DATABASE.get(id);
         if (seller != null) {

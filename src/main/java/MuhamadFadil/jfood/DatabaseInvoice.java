@@ -14,18 +14,35 @@ public class DatabaseInvoice {
     //private static int id;
     //private static Object InvoiceStatus;
 
+    /**
+     * konstraktor yang digunakan untuk database invoice
+     */
     public DatabaseInvoice() {
 
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendapatkan database invoice
+     * @return
+     */
     public static ArrayList<Invoice> getInvoiceDatabase() {
         return INVOICE_DATABASE;
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendapatkan id terakhir
+     * @return
+     */
     public static int getLastId() {
         return lastId;
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendapatkan invoice berdasarkan idnya
+     * @param id, digunakan untuk menentukan id invoice
+     * @return
+     * @throws InvoiceNotFoundException, mengecek ada tidaknya invoice
+     */
     public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException{
         boolean checker = false;
         for(int i=0;i<INVOICE_DATABASE.size();i++)
@@ -36,6 +53,11 @@ public class DatabaseInvoice {
         throw new InvoiceNotFoundException(id);
     }
 
+    /**
+     * konstraktor yang digunakan untuk menentukan invoice berdasarkan customer
+     * @param customerId, digunakan untuk id customer
+     * @return
+     */
     public static ArrayList<Invoice> getInvoiceByCustomer(int customerId) {
         boolean check = false;
         ArrayList<Invoice> temp= new ArrayList<Invoice>();
@@ -48,6 +70,12 @@ public class DatabaseInvoice {
         return temp;
     }
 
+    /**
+     * konstraktor yang digunakan untuk menambahkan invoice
+     * @param invoice, digunakan untuk terkoneksi ke invoice
+     * @return
+     * @throws OngoingInvoiceAlreadyExistsException, mengecek status
+     */
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
         for (Invoice array1 : INVOICE_DATABASE) {
             if(array1.getCustomer().equals(invoice.getCustomer()) && invoice.getInvoiceStatus().equals(InvoiceStatus.Finished)) {
@@ -59,6 +87,12 @@ public class DatabaseInvoice {
         return true;
     }
 
+    /**
+     * konstraktor yang digunakan untuk menentukan perubahan status
+     * @param id, digunakan untuk id invoice
+     * @param invoiceStatus, digunakan untuk status invoicenya
+     * @return
+     */
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
         for(int i=0;i<INVOICE_DATABASE.size();i++)
             if (INVOICE_DATABASE.get(i).getId() == id) {

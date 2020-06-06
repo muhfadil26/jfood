@@ -12,7 +12,19 @@ public class JFood{
     public JFood(){
     }
     public static void main (String[] args) throws CustomerNotFoundException {
-        Location location1 = new Location("Slemar", "Yogyakarta", "Bagian Selatan");
+        Location loc1 = new Location("DKI Jakarta", "Jakarta", "kode pos: 12400");
+        Location loc2 = new Location("Jawa Barat", "bandung", "kode pos: 12400");
+        Seller seller1 = new Seller(DatabaseSeller.getLastId()+1, "Muhamad Fadil", "muhamadfadil@gmail.com", "087881009876", loc1);
+        Seller seller2 = new Seller(DatabaseSeller.getLastId()+1, "Fadil Jaya", "muhamad@gmail.com", "087881009876", loc2);
+        Seller seller3 = new Seller(DatabaseSeller.getLastId()+1, "Fadil Muhamad", "fadil@gmail.com", "087881009876", loc1);
+        DatabaseSeller.addSeller(seller1);
+                
+        DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Kolek", seller1, 12000, FoodCategory.Snacks));
+        DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Es Buah", seller2, 15000, FoodCategory.Snacks));
+        DatabaseFood.addFood(new Food(DatabaseFood.getlastId()+1, "Pizza", seller3, 15000, FoodCategory.Snacks));
+
+
+        /*Location location1 = new Location("Slemar", "Yogyakarta", "Bagian Selatan");
         Location location2 = new Location("Blitar", "Jawa Timur", "dekat pantai");
         Location location3 = new Location("Jonggol", "Jawa Barat", "Kota hujan");
 
@@ -35,7 +47,7 @@ public class JFood{
 
         DatabaseSeller.addSeller(seller1);
         DatabaseSeller.addSeller(seller2);
-        DatabaseSeller.addSeller(seller3);
+        DatabaseSeller.addSeller(seller3);*/
 
         SpringApplication.run(JFood.class, args);
 

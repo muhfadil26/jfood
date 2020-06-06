@@ -7,6 +7,11 @@ package MuhamadFadil.jfood;
 
 public class PromoCodeAlreadyExistException extends Exception{
     private Promo promo_error;
+
+    /**
+     * konstraktor yang digunakan untuk mengecek promo agar tidak duplikasi
+     * @param promo_input, digunakan untuk code promo
+     */
     public PromoCodeAlreadyExistException(Promo promo_input){
         super("\n"+"Promo Code: ");
         this.promo_error=promo_input;

@@ -7,6 +7,11 @@ package MuhamadFadil.jfood;
 
 public class PromoNotFoundException extends Exception{
     private int promo_error;
+
+    /**
+     * konstraktor yang digunakan untuk mengecek promo
+     * @param promo_input, digunakan untuk cek id promo
+     */
     public PromoNotFoundException(int promo_input){
         super("\n"+"Promo ID: ");
         this.promo_error=promo_input;

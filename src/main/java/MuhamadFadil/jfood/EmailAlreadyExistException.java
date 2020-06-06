@@ -7,6 +7,11 @@ package MuhamadFadil.jfood;
 
 public class EmailAlreadyExistException extends Exception{
     private Customer customer_error;
+
+    /**
+     * konstraktor yang digunakan untuk menentukan inputan dari customer
+     * @param customer_input, digunakan untuk mengecek inputan customer
+     */
     public EmailAlreadyExistException (Customer customer_input){
         super("\n"+"Customer Email: ");
         this.customer_error=customer_input;

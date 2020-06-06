@@ -7,6 +7,11 @@ package MuhamadFadil.jfood;
 
 public class SellerNotFoundException extends Exception{
     private int seller_error;
+
+    /**
+     * konstraktor yang digunakan untuk pengecekan ada tidaknya seller
+     * @param seller_input, digunakan untuk pengecekan id seller sudah terdapat pada database belum
+     */
     public SellerNotFoundException (int seller_input){
         super("\n"+"Seller ID: ");
         this.seller_error= seller_input;

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * this class is ControllerCustomer
+ * kelas ini digunakan untuk melakukan kontrol Seller
  *
  * @author Muhamad Fadil
  * @version 16 Maret 2020

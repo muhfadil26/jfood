@@ -10,32 +10,63 @@ import java.util.ArrayList;
 
 public class DatabaseFood {
     private static ArrayList<Food> FOOD_DATABASE = new ArrayList<>();
-    private static int lastId = 0;
+    private static int lastId=0;
 
+    /**
+     * konstraktor yang digunakan untuk database food
+     */
     public DatabaseFood()
     {
         // initialise instance variables
     }
 
+    /**
+     * konstraktor digunakan untuk mendapatkan database food
+     * @return
+     */
     public static ArrayList<Food> getFoodDatabase()
     {
         return FOOD_DATABASE;
     }
 
+    /**
+     * konnstraktor yang digunakan untuk mendapatkan id terakhir food
+     * @return
+     */
     public static int getlastId()
     {
         return lastId;
     }
 
+    /**
+     * konstraktor yang digunakan untuk mendapatkan food berdasarkan idnya
+     * @param id, digunakan untuk id food
+     * @return
+     * @throws FoodNotFoundException, untuk mengecek apakah terdapat food atau tidak
+     */
     public static Food getFoodById(int id) throws FoodNotFoundException
     {
-        Food food = FOOD_DATABASE.get(id);
+        /*Food food = FOOD_DATABASE.get(id);
         if (food != null) {
             return food;
+        }
+        throw new FoodNotFoundException(id);*/
+        for (Food food: FOOD_DATABASE)
+        {
+            if (food.getId() == id)
+            {
+                return food;
+            }
         }
         throw new FoodNotFoundException(id);
     }
 
+    /**
+     * konstraktor yang digunakan untuk menentukan database makanan berdasarkan seller
+     * @param sellerId, id seller
+     * @return
+     * @throws SellerNotFoundException, mengecek ada tidaknya seller
+     */
     public static ArrayList<Food> getFoodBySeller (int sellerId) throws SellerNotFoundException
     {
         ArrayList<Food> array1 = new ArrayList<>();
@@ -47,6 +78,11 @@ public class DatabaseFood {
         throw new SellerNotFoundException(sellerId);
     }
 
+    /**
+     * konstraktor yang digunakan untuk mengecek makan berdasarkan categorynya
+     * @param category, digunakan untuk menentukan kategory
+     * @return
+     */
     public static ArrayList<Food> getFoodByCategory(FoodCategory category)
     {
         ArrayList<Food> array1 = new ArrayList<>();
@@ -58,6 +94,11 @@ public class DatabaseFood {
         return array1;
     }
 
+    /**
+     * konstraktor yang digunakan untuk menambahkan Food
+     * @param food
+     * @return
+     */
     public static boolean addFood(Food food) //throws FoodNotFoundException
     {
         // put your code here

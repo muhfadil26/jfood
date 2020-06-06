@@ -21,7 +21,7 @@ public class Promo
     * @param code, this variable is used for id code
     * @param discount, this variable is used for discount
     * @param minPrice, this variable is used for minPrice
-    * @param actice, this variable is used for active
+    * @param active, this variable is used for active
     */
     public Promo(int id, String code, int discount, int minPrice, boolean active)
     {
@@ -34,22 +34,39 @@ public class Promo
     }
     
     public int getId(){
+        /*
+         *return id
+         */
         return id; 
     }
     
     public String getCode(){
+        /*
+         *return code
+         */
         return code; 
     }
     
     public int getDiscount(){
+
+        /*
+         *return discount
+         */
         return discount; 
     }
     
     public int getMinPrice(){
+        /*
+         *return minPrice
+         */
         return minPrice; 
     }
     
     public boolean getActive(){
+
+        /*
+         *return active
+         */
         return active;
     }
         
@@ -68,7 +85,9 @@ public class Promo
     public void setMinPrice(int minPrice){
         this.minPrice=minPrice;
     }
-
+    public void setActive (boolean active){
+        this.active=active;
+    }
     public String toString(){
          return 
 
@@ -79,7 +98,4 @@ public class Promo
         "Active Status = "+ active+ "\n";
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }

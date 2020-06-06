@@ -60,7 +60,7 @@ public class Seller{
     
     public Location getLocation(){
          /*
-         * @return locatio
+         * @return location
          */
         return location; 
     }

@@ -23,8 +23,6 @@ public abstract class Invoice{
     * 
     * @param id, this variable is used for id invoice
     * @param foods, this variable is used for id Food
-    * @param date, this variable is used for date invoice
-    * @param totalPrice, this variable is used for total price
     * @param customer, this variable is used for customer
     */
     

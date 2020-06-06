@@ -7,6 +7,11 @@ package MuhamadFadil.jfood;
 public class CustomerNotFoundException extends Exception {
     private int customer_error;
 
+    /**
+     * konstraktor yang digunakan untuk menetukan id customer
+     * @param customer_input, digunakan untuk melakukan inputan id customer
+     *
+     */
     public CustomerNotFoundException(int customer_input){
         super("Customer ID: ");
         this.customer_error=customer_input;
