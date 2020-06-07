@@ -23,7 +23,7 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan list dari dari database promo
+     * metode yang digunakan untuk mendapatkan list dari dari database promo
      * @return
      */
     public static ArrayList<Promo>  getPromoDatabase()
@@ -32,7 +32,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan id terakhir
+     * metode yang digunakan untuk mendapatkan id terakhir
+     *
      * @return
      */
     public static int getLastId()
@@ -41,7 +42,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan promo berdasarkan idnya
+     * metode yang digunakan untuk mendapatkan promo berdasarkan idnya
+     *
      * @param id, digunakan untuk id promo
      * @return
      * @throws PromoNotFoundException, mengecek ada tidaknya promo berdasakan idnya
@@ -56,7 +58,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan promo berdasarkan codenya
+     * metodeyang digunakan untuk mendapatkan promo berdasarkan codenya
+     *
      * @param code, digunakan untuk mendapatkan code promo berupa string
      * @return
      */
@@ -71,7 +74,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk menambahkan promo
+     * metode yang digunakan untuk menambahkan promo
+     *
      * @param promo, digunakan untuk terhubung ke class promo
      * @return
      * @throws PromoCodeAlreadyExistException, mengecek apakah promo sudah ada atau tidak
@@ -98,7 +102,8 @@ public class DatabasePromo
 
 
     /**
-     * konstraktor yang digunakan untuk mengaktifkan promo
+     * metode yang digunakan untuk mengaktifkan promo
+     *
      * @param id, id dari promo bertipe integer
      * @return
      */
@@ -116,7 +121,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk menonaktifkan promo
+     * metode yang digunakan untuk menonaktifkan promo
+     *
      * @param id, digunakan untuk id promo
      * @return
      */
@@ -131,7 +137,8 @@ public class DatabasePromo
     }
 
     /**
-     * konstraktor yang digunakan untuk menghapus promo
+     * metode yang digunakan untuk menghapus promo
+     *
      * @param id, digunakan untuk id promo
      * @return
      * @throws PromoNotFoundException, mengecek ada tidaknya promo

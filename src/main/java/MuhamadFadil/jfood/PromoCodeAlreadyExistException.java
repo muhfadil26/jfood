@@ -6,6 +6,7 @@ package MuhamadFadil.jfood;
  */
 
 public class PromoCodeAlreadyExistException extends Exception{
+    //variable
     private Promo promo_error;
 
     /**
@@ -17,6 +18,7 @@ public class PromoCodeAlreadyExistException extends Exception{
         this.promo_error=promo_input;
     }
 
+    //metode yang digunakan untuk mencetak jika promocode yang dibuat sudah ada
     public String getMessage(){
         return super.getMessage()+promo_error.getCode() + " already exist";
     }

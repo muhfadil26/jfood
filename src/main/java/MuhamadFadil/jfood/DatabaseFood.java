@@ -104,9 +104,11 @@ public class DatabaseFood {
         // put your code here
         //FOOD_DATABASE.add(food);
         //FOOD_DATABASE.indexOf(food);
-        FOOD_DATABASE.add(food);
-        lastId = food.getId();
-        return true;
+        if(FOOD_DATABASE.add(food)){
+            lastId = food.getId();
+            return true;
+        }
+        return false;
 
         //throw new FoodNotFoundException(food.getId());
     }

@@ -1,11 +1,11 @@
 package MuhamadFadil.jfood;
+
 /**
 * This class is used for Customer
 *
 * @author  Muhamad Fadil
 * @version   2020-02-27 
 */
-import java.util.*;
 import java.util.Calendar; 
 import java.util.Date; 
 import java.util.GregorianCalendar;
@@ -22,7 +22,7 @@ public class Customer{
    private Calendar joinDate; 
    
     /**
-    * this method is used for add customer
+    * this method constructor is used for add customer
     * contains private variable
     * @param id, this is a variable for id customer
     * @param name, this is a variable for name customer
@@ -43,7 +43,7 @@ public class Customer{
     }
 
     /**
-     * this method is used for add customer
+     * this constructor method is used for add customer
      * contains private variable
      * @param id, this is a variable for id customer
      * @param name, this is a variable for name customer
@@ -67,7 +67,7 @@ public class Customer{
     }
 
     /**
-     * this method is used for add customer
+     * this constructor method is used for add customer
      * contains private variable
      * @param id, this is a variable for id customer
      * @param name, this is a variable for name customer

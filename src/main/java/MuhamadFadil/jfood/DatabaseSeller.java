@@ -21,7 +21,7 @@ public class DatabaseSeller
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan seller database berupa array
+     * metode yang digunakan untuk mendapatkan seller database berupa array
      * @return
      */
     public static ArrayList<Seller> getSellerDatabase(){
@@ -29,7 +29,7 @@ public class DatabaseSeller
     }
 
     /**
-     * konstraktor yang digunakan mendapatkan id terakhir
+     * metode yang digunakan mendapatkan id terakhir
      * @return
      */
     public static int getLastId()
@@ -38,7 +38,8 @@ public class DatabaseSeller
     }
 
     /**
-     * konstraktor yang digunakan untuk mendaptkan seller berdasarkan idnya
+     * metode yang digunakan untuk mendaptkan seller berdasarkan idnya
+     *
      * @param id, digunakan untuk id seller
      * @return
      * @throws SellerNotFoundException, mengecek ada tidaknya seller
@@ -57,7 +58,8 @@ public class DatabaseSeller
     }
 
     /**
-     * konstraktor yang digunakan untuk menambahkan seller
+     * metode yang digunakan untuk menambahkan seller
+     *
      * @param seller, digunakan untuk mengkoneksikan ke class seller
      * @return
      */
@@ -72,7 +74,8 @@ public class DatabaseSeller
     }
 
     /**
-     * konstraktor yang digunakan untuk menghapus seller
+     * metode yang digunakan untuk menghapus seller
+     *
      * @param id, digunakan untuk id seller
      * @return
      * @throws SellerNotFoundException, mengecek ada tidaknya seller

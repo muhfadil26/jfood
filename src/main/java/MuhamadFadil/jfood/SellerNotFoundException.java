@@ -17,6 +17,7 @@ public class SellerNotFoundException extends Exception{
         this.seller_error= seller_input;
     }
 
+    //metode untuk cetak jika tidak terdapat seller pada database
     public String getMessage(){
         return super.getMessage() +seller_error+" not found";
     }

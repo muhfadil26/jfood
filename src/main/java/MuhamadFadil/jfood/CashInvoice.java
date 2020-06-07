@@ -1,22 +1,18 @@
-package MuhamadFadil.jfood;
+package MuhamadFadil.jfood; //library group pada folder jfood
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 /**
  * kelas ini digunakan untuk kelas invoice yang melakukan pembayaran secara cash
  *
  * @author Muhamad Fadil
  * @version 13 Maret 2020
  */
-import java.util.*;
-import java.util.Calendar; 
-import java.util.Date; 
-import java.util.GregorianCalendar;
-import java.text.SimpleDateFormat; 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.ArrayList;
 
 public class CashInvoice extends Invoice
 {
-    
+    //variable
     private static PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
 
@@ -31,9 +27,10 @@ public class CashInvoice extends Invoice
         setTotalPrice();
          
     }
+
     /*
      * membuat metode konstraktor CashInvoice
-     * * @param id, digunakan untuk id Food
+     * @param id, digunakan untuk id Food
      * @param foods, digunakan untuk list Food
      * @param customer, digunakan untuk pemanggilan customer
      * @param deliveryFee, diguanakn untuk menginisialisasi ongkos kirim
@@ -43,20 +40,28 @@ public class CashInvoice extends Invoice
         this.deliveryFee = deliveryFee;
         setTotalPrice();
     }
+
     /*
      * metode untuk mengakses class PamentType
+     *
+     * @return PAYMENT_TYPE
      */
     public PaymentType getPaymentType(){
          return PAYMENT_TYPE; 
     }
+
     /*
      * metode accessor getter untuk deliveryFee
+     *
+     * @return deliveryFee
      */
     public int getDeliveryFee(){
          return deliveryFee; 
     }
+
      /*
      * metode untuk meng-set deliveryFee
+     *
      * @param deliveryFee, digunakan untuk mengatur ongkos kirim
      */
     public void setDeliveryFee(int deliveryFee){
@@ -75,6 +80,7 @@ public class CashInvoice extends Invoice
         else super.totalPrice=foodPrice;
     }
 
+    //digunakan untuk cetak dari class CashInvoice
     public String toString() {
         if((super.getDate()!=null) && (deliveryFee > 0)){
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");

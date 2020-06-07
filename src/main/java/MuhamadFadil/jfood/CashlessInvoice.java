@@ -16,8 +16,10 @@ import java.util.ArrayList;
 
 public class CashlessInvoice extends Invoice
 {
+    //variable
     public static PaymentType PAYMENT_TYPE=PaymentType.Cashless;  
-    private Promo promo; 
+    private Promo promo;
+
     /*
      * metode konstraktor untuk CashlessInvoice
      * * @param id, digunakan untuk id Food
@@ -28,6 +30,7 @@ public class CashlessInvoice extends Invoice
         super(id, foods, customer);
         setTotalPrice();
     }
+
     /*
      * membuat metode konstraktor CashlessInvoice
      * * @param id, digunakan untuk id Food
@@ -40,12 +43,14 @@ public class CashlessInvoice extends Invoice
          this.promo=promo;
          setTotalPrice();
     }
+
     /*
      * metode untuk mengakses class PamentType
      */
     public PaymentType getPaymentType(){
          return PAYMENT_TYPE; 
     }
+
     /*
      * metode accessor getter untuk promo
      * @param promo, digunakan untuk mendapatkan promo
@@ -53,6 +58,7 @@ public class CashlessInvoice extends Invoice
     public Promo getPromo(){
          return promo; 
     }
+
     /*
      * metode untuk meng-set promo
      * @param promo, digunakan untuk memberikan nilai promo

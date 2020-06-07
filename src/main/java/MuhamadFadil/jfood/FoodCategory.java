@@ -8,15 +8,18 @@ package MuhamadFadil.jfood;
 
 public enum FoodCategory
 {
-    
-    Beverage("Beverage"), Coffe("Coffe"), Western("Westren"), Snacks("Snacks"), Rice("Rice"), Noodles("Noodles"), Bakery("Bakery"), Japanese("Japanese");   
-    
-    private String category; 
-    
+    //kategori yang ada pada Food
+    Beverage("Beverage"), Coffe("Coffe"), Western("Westren"), Snacks("Snacks"), Rice("Rice"), Noodles("Noodles"), Bakery("Bakery"), Japanese("Japanese");
+
+    //variable category
+    private String category;
+
+    //konstraktor yang digunakan untuk memastikan category
     private FoodCategory(String category){
         this.category=category; 
     }
-    
+
+    //metode untuk cetak class FoodCategory
     public String toString (){
         return category; 
     }

@@ -17,6 +17,7 @@ public class EmailAlreadyExistException extends Exception{
         this.customer_error=customer_input;
     }
 
+    //metode yang digunakan untuk menampilkan error handling jika email sudah ada
     public String getMessage(){
         return super.getMessage() + customer_error.getEmail() + " already exist";
     }

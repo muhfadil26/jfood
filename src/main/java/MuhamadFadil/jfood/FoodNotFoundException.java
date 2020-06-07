@@ -13,6 +13,7 @@ public class FoodNotFoundException extends Exception {
 
     /**
      * konstraktor yang digunakan untuk inputan id food
+     *
      * @param food_input, input yang digunakan untuk mengecek class food
      */
     public FoodNotFoundException (int food_input){
@@ -21,6 +22,7 @@ public class FoodNotFoundException extends Exception {
         this.food_error = food_input;
     }
 
+    //cetak error jika tidak terdapat makanan
     public String getMessage(){
         return super.getMessage() + food_error + " not found";
     }

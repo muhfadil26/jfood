@@ -18,49 +18,57 @@ public class Location{
     * @param city, this is used for name city
     * @param description, this is used for decription city
     */
-    
+
+    //metode konstraktor
     public Location (String city, String province, String description){
         this.city=city; 
         this.province=province; 
         this.description=description; 
         
     }
-    
+
+    //metode getProvince
     public String getProvince(){
          /*
          * @return province
          */
         return province; 
     }
-    
+
+    //metode getCity
     public String getCity(){
          /*
          * @return city
          */
         return city; 
     }
-    
+
+    //metode getDescription
     public String getDescription(){
          /*
          * @return description
          */
         return description; 
     }
-    
+
+    //metode setProvince
     public void setProvince(String province){
         this.province=province; 
        
     }
-    
+
+    //metode setCity
     public void setCity(String city){
         this.city=city; 
        
     }
-    
+
+    //metode setDescription
     public void setDescription(String description){
         this.description=description; 
     }
-    
+
+    //metode cetak class location
     public String toString(){
          return "\n"+"Province = "+ province+ "\n"+
         "City = "+ city+ "\n"+

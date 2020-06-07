@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * kelas DatabaseCustomerPostgre digunakan untuk melakukan koneksi ke database postgre
+ * menggantikan DatabaseCustomer
  *
  * @author Muhamad Fadil
  * @version 6 Juni 2020
@@ -17,47 +18,16 @@ import java.util.Date;
 
 
 public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
-    /**
-     * this method is to insert a customer to Postgres Database
-     * @param id is the customer's id
-     * @param name is the customer's name
-     * @param email is the customer's email
-     * @param password is the customer's password
-     */
-    public static Customer insertCustomer(int id, String name, String email, String password)
-    {
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 1);
-        Date date = cal.getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date1 = sdf.format(date);
-        Connection c = DatabaseConnectionPostgre.connection();
-
-        try
-        {
-            Statement stmt = c.createStatement();
-            String query = "INSERT INTO customer (id, name, email, password, joinDate)"
-                    + "VALUES (" + id + ",'" + name + "','"+ email + "','"+ password + "','" + date1 + "');";
-
-            stmt.executeUpdate(query);
-            stmt.close();
-            c.close();
-            return new Customer(id, name, email, password);
-        }
-        catch (SQLException e)
-        {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            return null;
-        }
-    }
 
     /**
-     * this method is to return the last customer's id
-     * @return an integer of the last customer added to customer database
+     * metode ini digunakan untuk mendapatkan id cutomer terakhir
+     *
+     * @return
      */
-    public static int getLastCustomerId()
+    public static int getLastCustomerId() throws CustomerNotFoundException
     {
 
+        //lastId dimualai dari 0 (default)
         int lastCustomerId = 0;
         try
         {
@@ -84,9 +54,10 @@ public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
     }
 
     /**
-     * this method is to return a Customer class object by it's id
-     * @param id is the id of the expected customer that this method returns
-     * @return a Customer object in respect to the id in the parameter id
+     * metode yang digunakan untuk mendapatkan customer dengan menggunakan Id
+     *
+     * @param id, variable yang digunakan untuk mendapatkan id customer
+     * @return
      */
     public static Customer getCustomer(int id)
     {
@@ -134,11 +105,47 @@ public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
     }
 
     /**
-     * this method is to remove the specified customer from the database
-     * @param id is the customer's id to point to the customer that wanted to be removed
-     * @return a boolean, true if the customer is succeeded to be removed from the database, otherwise false
+     * metode yang digunakan untuk menambahkan customer
+     *
+     * @param id, variable yang digunakan untuk mendapatkan id dari customer
+     * @param name, variable yang digunakan untuk mendapatkan name customer
+     * @param email, variable yang digunakan untuk mendapatkan email dari customer
+     * @param password, variable yang digunakan untuk mendaptkan password dari customer
      */
-    public static void removeCustomer(int id)
+    public static Customer insertCustomer(int id, String name, String email, String password) throws EmailAlreadyExistException
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 1);
+        Date date = cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date1 = sdf.format(date);
+        Connection c = DatabaseConnectionPostgre.connection();
+
+        try
+        {
+            Statement stmt = c.createStatement();
+            String query = "INSERT INTO customer (id, name, email, password, joinDate)"
+                    + "VALUES (" + id + ",'" + name + "','"+ email + "','"+ password + "','" + date1 + "');";
+
+            stmt.executeUpdate(query);
+            stmt.close();
+            c.close();
+            return new Customer(id, name, email, password);
+        }
+        catch (SQLException e)
+        {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * metode yang digunakan untuk menghapus customer berdasarkan idnya
+     *
+     * @param id, variable yang digunakan untuk mendaptkan id customer
+     * @return
+     */
+    public static void removeCustomer(int id) throws CustomerNotFoundException
     {
         try
         {
@@ -157,10 +164,11 @@ public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
     }
 
     /**
-     * this method is check if the email and the password match for any customer
-     * @param email is the customer's email that wanted to be match to the password
-     * @param password is the customer's password for the email in this method's parameter
-     * @return a Customer Class object that represented by the email in the email parameter only if the password match, otherwise return null
+     * metode yang digunakan untuk login dengan menggunakan email dan password
+     *
+     * @param email, variable yang digunakan untuk mendapatkan email
+     * @param password, variable yang digunakan untuk mendaptkan password
+     * @return null
      */
     public static Customer getLogin(String email, String password)
     {
@@ -208,9 +216,13 @@ public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
         }
 
         return null;
-
     }
 
+    /**
+     * metode yang digunakan untuk koneksi
+     *
+     * @return
+     */
     public static Connection connection() {
         return null;
     }

@@ -1,4 +1,6 @@
 package MuhamadFadil.jfood;
+
+
 /**
  * this class is used for class Promo
  *
@@ -7,14 +9,14 @@ package MuhamadFadil.jfood;
  */
 public class Promo
 {
+    //variable
     private int id; 
     private String code; 
     private int discount; 
     private int minPrice; 
     private boolean active; 
     
-    
-     /**
+    /**
     * this method class invoice is used for getting information about food  
     * 
     * @param id, this variable is used for id invoice
@@ -32,21 +34,24 @@ public class Promo
         this.active=active; 
         
     }
-    
+
+    //metode getId
     public int getId(){
         /*
          *return id
          */
         return id; 
     }
-    
+
+    //metode getCode
     public String getCode(){
         /*
          *return code
          */
         return code; 
     }
-    
+
+    //metode getDiscount
     public int getDiscount(){
 
         /*
@@ -54,14 +59,16 @@ public class Promo
          */
         return discount; 
     }
-    
+
+    //metode getMinPrice
     public int getMinPrice(){
         /*
          *return minPrice
          */
         return minPrice; 
     }
-    
+
+    //metode getActive
     public boolean getActive(){
 
         /*
@@ -69,25 +76,33 @@ public class Promo
          */
         return active;
     }
-        
+
+    //metode setId
     public void setId(int id){
         this.id=id;
     }
-    
+
+    //metode setCode
     public void setCode(String code){
      this.code=code;
     }
-    
+
+    //metode setDiscount
     public void setDiscount(int discount){
         this.discount=discount;
     }
-    
+
+    //metode setMinPrice
     public void setMinPrice(int minPrice){
         this.minPrice=minPrice;
     }
+
+    //metode setActive
     public void setActive (boolean active){
         this.active=active;
     }
+
+    //metode untuk cetak promo
     public String toString(){
          return 
 

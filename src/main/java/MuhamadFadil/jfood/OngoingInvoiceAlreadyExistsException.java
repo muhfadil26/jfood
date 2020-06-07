@@ -17,6 +17,7 @@ public class OngoingInvoiceAlreadyExistsException extends Exception {
         this.invoice_error=invoice_input;
     }
 
+    //metode untuk cetak jika status yang diberikan sudah ada
     public String getMessage(){
         return super.getMessage() + invoice_error + " Already Exists";
     }

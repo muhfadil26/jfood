@@ -17,6 +17,7 @@ public class CustomerNotFoundException extends Exception {
         this.customer_error=customer_input;
     }
 
+    //metode yang digunakan untuk cetak jika tidak terdapat customer pada database customer
     public String getMessage(){
         return super.getMessage() + customer_error + " not found";
     }

@@ -2,7 +2,7 @@ package MuhamadFadil.jfood;
 import java.util.ArrayList;
 
 /**
- * This class is DatabaseFood
+ * kelas database yang diguanakn untuk menyimpan invoice baru
  *
  * @author  Muhamad Fadil
  * @version   2020-04-3
@@ -22,7 +22,7 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan database invoice
+     * metode yang digunakan untuk mendapatkan database invoice
      * @return
      */
     public static ArrayList<Invoice> getInvoiceDatabase() {
@@ -30,7 +30,7 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan id terakhir
+     * metode yang digunakan untuk mendapatkan id terakhir
      * @return
      */
     public static int getLastId() {
@@ -38,9 +38,10 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan invoice berdasarkan idnya
+     * metode yang digunakan untuk mendapatkan invoice berdasarkan idnya
+     *
      * @param id, digunakan untuk menentukan id invoice
-     * @return
+     * @return INVOICE_DATABASE.get(i)
      * @throws InvoiceNotFoundException, mengecek ada tidaknya invoice
      */
     public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException{
@@ -54,7 +55,8 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk menentukan invoice berdasarkan customer
+     * metode yang digunakan untuk menentukan invoice berdasarkan customer
+     *
      * @param customerId, digunakan untuk id customer
      * @return
      */
@@ -71,7 +73,8 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk menambahkan invoice
+     * metode yang digunakan untuk menambahkan invoice
+     *
      * @param invoice, digunakan untuk terkoneksi ke invoice
      * @return
      * @throws OngoingInvoiceAlreadyExistsException, mengecek status
@@ -88,7 +91,8 @@ public class DatabaseInvoice {
     }
 
     /**
-     * konstraktor yang digunakan untuk menentukan perubahan status
+     * metode yang digunakan untuk menentukan perubahan status
+     *
      * @param id, digunakan untuk id invoice
      * @param invoiceStatus, digunakan untuk status invoicenya
      * @return

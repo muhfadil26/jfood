@@ -7,14 +7,18 @@ package MuhamadFadil.jfood;
  */
 public enum PaymentType
 {
+    //pembuatan jenis pembayaran
     Cashless ("Cashless"), Cash("Cash"); 
-    
+
+    //variable
     private String paymentType; 
-    
+
+    //metode konstraktor pembayaran
     private PaymentType(String paymentType){
         this.paymentType=paymentType; 
     }
-    
+
+    //metode untuk cetak
     public String toString(){
         return paymentType; 
     }

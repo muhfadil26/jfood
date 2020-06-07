@@ -21,7 +21,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstructor yang digunakan untuk list dari customer
+     * metode yang digunakan untuk list dari customer
+     *
      * @return
      */
     public static ArrayList<Customer> getCustomerDatabase()
@@ -30,7 +31,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstraktor yang digunakan untuk mendapatkan id terakhir  dari customer
+     * metode yang digunakan untuk mendapatkan id terakhir  dari customer
+     *
      * @return
      */
     public static int getLastId()
@@ -39,7 +41,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstructor yang digunakan untuk mendapatkan customer berdasarkan idnya
+     * metode yang digunakan untuk mendapatkan customer berdasarkan idnya
+     *
      * @param customerId, digunakan untuk id customer
      * @return
      * @throws CustomerNotFoundException, digunakan untuk terhubung dengan class CustomerNotFoundException
@@ -54,7 +57,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstraktor yang digunakan untuk menambahkan customer
+     * metode yang digunakan untuk menambahkan customer
+     *
      * @param customer, digunakan untuk berkomunikasi dengan customer
      * @return
      * @throws EmailAlreadyExistException, digunakan untuk pengecekan apakah emailnya telah terdaftar atau tidak
@@ -78,7 +82,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstraktor yang digunakan untuk menghapus customer
+     * metode yang digunakan untuk menghapus customer
+     *
      * @param id, digunakan untuk melakukan penentuan id customer
      * @return
      * @throws CustomerNotFoundException, digunakan untuk pengecekan customer ada atau tidak pada database
@@ -95,7 +100,8 @@ public class DatabaseCustomer
     }
 
     /**
-     * konstruktor yang digunakan untuk melakukan login dengan email dan password yang sesuai
+     * metode yang digunakan untuk melakukan login dengan email dan password yang sesuai
+     *
      * @param email, digunaan untuk menentukan email yang akan diberikan untuk login
      * @param password, digunakan untuk menentukan password yang akan diberikan untuk login
      * @return

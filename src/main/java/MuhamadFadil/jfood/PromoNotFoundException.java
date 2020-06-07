@@ -17,6 +17,7 @@ public class PromoNotFoundException extends Exception{
         this.promo_error=promo_input;
     }
 
+    //metode yang digunakan untuk cetak jika tidak terdapat promo
     public String getMessage(){
         return super.getMessage()+promo_error+" not found";
     }

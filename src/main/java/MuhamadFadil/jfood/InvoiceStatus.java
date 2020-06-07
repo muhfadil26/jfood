@@ -7,14 +7,18 @@ package MuhamadFadil.jfood;
  */
 public enum InvoiceStatus
 {
+    //jenis-jenis status pesanan
     Ongoing ("Ongoing"), Finished ("Finished"), Cancelled ("Cancelled"); 
-    
+
+    //variable status
     private String status; 
-    
+
+    //konstraktor metode yang digunakan untuk status
     private InvoiceStatus(String status){
         this.status=status; 
     }
-    
+
+    //metode untuk cetak class InvoiceStatus
     public String toString (){
         return status; 
     }

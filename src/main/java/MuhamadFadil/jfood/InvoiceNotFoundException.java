@@ -9,6 +9,7 @@ public class InvoiceNotFoundException extends Exception{
 
     /**
      * konstraktor yang digunakan untuk pengecekan input invoice
+     *
      * @param invoice_input, input yang digunakan untuk mengecek inputan invoice
      */
     public InvoiceNotFoundException(int invoice_input){
@@ -16,6 +17,7 @@ public class InvoiceNotFoundException extends Exception{
         this.invoice_error=invoice_input;
     }
 
+    //metode yang digunakan untuk cetak kesalah jika tidak terdpat invoice pada database invoice
     public String getMessage(){
         return super.getMessage() + invoice_error + " not found";
     }
